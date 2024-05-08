@@ -1,0 +1,900 @@
+.form-title h6 {
+    color: chocolate;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: 5px 0px 10px 10px;
+    border-left: 5px solid chocolate;
+}
+
+.card {
+    background-color: white;
+}
+
+.card .card-header {
+    height: 60px;
+    padding: 10px !important;
+}
+
+.card .card-header input[type="text"],
+select {
+    height: 40px;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-list {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc;
+    /* height: 40px;
+    padding: 10px; */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.card .card-header .btn-action-list:hover {
+    background-color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-search {
+    cursor: pointer;
+    color: white;
+    background-color: cornflowerblue;
+    /* height: 40px;
+    padding: 10px; */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.card .card-header .btn-action-search:hover {
+    background-color: dodgerblue;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-reset {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc;
+    /* height: 40px;
+    padding: 10px; */
+}
+
+.card .card-header .btn-action-reset:hover {
+    background-color: firebrick;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-addnew {
+    cursor: pointer;
+    color: white;
+    background-color: lightcoral;
+    /* height: 40px;
+    padding: 10px; */
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-header .btn-action-addnew:hover {
+    background-color: coral;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-filters {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc;
+    /* height: 40px;
+    padding: 10px; */
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-header .btn-action-filters:hover {
+    background-color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-back {
+    cursor: pointer;
+    color: white;
+    background-color: #dee2e6;
+    /* height: 40px;
+    padding: 10px; */
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-header .btn-action-back:hover {
+    background-color: #ccc;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .form-group .dropdown-menu {
+    margin-left: 45px !important;
+}
+
+.card .subjects-table .p1 {
+    padding: 5px 10px;
+    border-left: 5px solid chocolate;
+}
+
+.card .subjects-table .p1 .title {
+    color: chocolate;
+    font-size: 16px;
+}
+
+.card .subjects-table .p1 .data {
+    color: cornflowerblue;
+    font-size: 14px;
+}
+
+.card .subjects-table .p2 {
+    padding: 5px 10px;
+    border-left: 5px solid chocolate;
+}
+
+.card .subjects-table .p2 .title {
+    color: chocolate;
+    font-size: 16px;
+}
+
+.card .subjects-table .p2 .data {
+    color: cornflowerblue;
+    font-size: 14px;
+}
+
+.card .card-body {
+    padding: 5px;
+}
+
+.card .card-body label,
+p,
+span {
+    font-size: 0.9em;
+}
+
+.card .card-body em {
+    font-size: 0.8em;
+}
+
+.card .card-body label {
+    color: #333;
+    font-weight: bold;
+}
+
+.card .card-body table thead tr th {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card .card-body table tbody tr td {
+    color: #999;
+    font-size: 0.9em;
+    vertical-align: middle !important;
+}
+
+.card .card-body table tbody tr .td-status .active {
+    color: seagreen;
+}
+
+.card .card-body table tbody tr .td-status .inactive {
+    color: tomato;
+}
+
+.card .card-body table tbody tr .td-action {
+    cursor: pointer;
+}
+
+.card .card-body table tbody tr td .dropdown-menu {
+    margin-left: 50px;
+}
+
+.card .card-body table tbody tr td .dropdown-menu .dropdown-item {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.card .card-footer .pagination .right-side .list-group {
+    flex-direction: row !important;
+}
+
+.card .card-footer .pagination .right-side .list-group .list-group-item {
+    border: none;
+    cursor: pointer;
+}
+
+.card .card-footer .pagination .right-side .list-group .list-group-item.active {
+    color: white;
+    background-color: coral;
+    margin-top: 0px;
+}
+
+.card .card-footer .pagination .right-side .list-group .list-group-item:hover {
+    color: white;
+    background-color: lightcoral;
+}
+
+.subjects-table .pagination .right-side .list-group {
+    flex-direction: row !important;
+}
+
+.subjects-table .pagination .right-side .list-group .list-group-item {
+    border: none;
+    cursor: pointer;
+}
+
+.subjects-table .pagination .right-side .list-group .list-group-item.active {
+    color: white;
+    background-color: coral;
+    margin-top: 0px;
+}
+
+.subjects-table .pagination .right-side .list-group .list-group-item:hover {
+    color: white;
+    background-color: lightcoral;
+}
+
+
+/* css accordion card styles */
+.accordion .card .card-header.isOpen {
+    background-color: #dee2e6;
+}
+
+.accordion .card .card-header .mb-0 {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.accordion .card .card-header .mb-0 .btn {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.accordion .card .card-body table tbody .td-section span {
+    cursor: pointer;
+    color: white;
+    padding: 5px 10px;
+    background-color: cornflowerblue;
+    border: 1px solid cornflowerblue;
+    border-radius: 5px;
+}
+
+.accordion .card .card-body table tbody .td-section span:hover {
+    background-color: dodgerblue;
+    border: 1px solid dodgerblue;
+}
+
+.accordion .card .card-body .collapsible-link {
+    width: 100%;
+    position: relative;
+    text-align: left;
+    color: #818181;
+    text-decoration: none;
+}
+
+.accordion .card .card-body .collapsible-link::before {
+    content: '\f107';
+    position: absolute;
+    top: 50%;
+    right: 0.8rem;
+    transform: translateY(-50%);
+    display: block;
+    font-family: 'FontAwesome';
+    /* font-size: 1rem; */
+}
+
+.accordion .card .card-body .collapsible-link[aria-expanded='true']::before {
+    content: '\f106';
+}
+
+.accordion .actions .btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.accordion .actions .btn-action-view {
+    color: white;
+    background-color: #dee2e6;
+}
+
+.accordion .actions .btn-action-view:hover {
+    background-color: #ccc;
+}
+
+.accordion .actions .btn-action-dark {
+    color: white;
+    background-color: steelblue;
+}
+
+.accordion .actions .btn-action-edit {
+    color: white;
+    background-color: cornflowerblue;
+}
+
+.accordion .actions .btn-action-edit:hover {
+    background-color: dodgerblue;
+}
+
+.accordion .actions .btn-action-delete {
+    color: white;
+    background-color: lightcoral;
+}
+
+.accordion .actions .btn-action-delete:hover {
+    background-color: coral;
+}
+
+.accordion .actions .btn-action-restore {
+    color: white;
+    background-color: mediumseagreen;
+}
+
+.accordion .actions .btn-action-restore:hover {
+    background-color: seagreen;
+}
+
+.accordion .card .card-footer .pagination .right-side .list-group {
+    flex-direction: row !important;
+}
+
+.accordion .card .card-footer .pagination .right-side .list-group .list-group-item {
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.accordion .card .card-footer .pagination .right-side .list-group .list-group-item.active {
+    color: white;
+    background-color: coral;
+    margin-top: 0px;
+}
+
+.accordion .card .card-footer .pagination .right-side .list-group .list-group-item:hover {
+    color: white;
+    background-color: lightcoral;
+}
+
+.accordion .card .card-footer .pagination .right-side .list-group .list-group-item.active {
+    color: white;
+    background-color: cornflowerblue;
+    margin-top: 0px;
+}
+
+.accordion .card .card-footer .pagination .right-side .list-group .list-group-item:hover {
+    color: white;
+    background-color: dodgerblue;
+}
+
+
+/* css view school details styles */
+.sidenav_school_view {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9;
+    top: 70px;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.sidenav_school_view hr.line {
+    margin-top: 1.25rem !important;
+    margin-bottom: 0rem !important;
+}
+
+.sidenav_school_view a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav_school_view a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav_school_view h5 {
+    color: #ccc;
+    position: absolute;
+    top: 0;
+    /* left: 0; */
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.sidenav_school_view .closebtn {
+    cursor: pointer;
+    position: absolute;
+    top: -15px;
+    left: 0;
+    font-size: 36px;
+    margin-top: 15px;
+}
+
+.sidenav_school_view .label-details {
+    /* height: 80vh;
+    overflow-y: scroll; */
+}
+
+.sidenav_school_view .titles {
+    border: 1px double #f1f1f1;
+    background: linear-gradient(180deg, rgba(241,241,241,1) 100%, rgba(204,204,204,1) 100%);
+    padding: 5px;
+}
+
+.sidenav_school_view .titles h6 {
+    color: #333;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    word-spacing: 1.2px;
+}
+
+.sidenav_school_view .labels .icon {
+    color: cornflowerblue;
+    font-size: 16px;
+}
+
+.sidenav_school_view .labels .data h6 {
+    color: coral;
+    font-size: 16px;
+}
+
+.sidenav_school_view .labels .data p {
+    color: #818181;
+    font-size: 14px;
+}
+
+.sidenav_school_view .labels .data .iso {
+    color: #818181;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.sidenav_school_view .labels .data .email {
+    cursor: pointer;
+    color: cornflowerblue;
+}
+
+.sidenav_school_view .labels .data .email:hover {
+    color: dodgerblue;
+    text-decoration: underline;
+}
+
+.sidenav_school_view .labels .data .phone {
+    cursor: pointer;
+    color: mediumseagreen;
+}
+
+.sidenav_school_view .labels .data .phone:hover {
+    color: seagreen;
+}
+
+.sidenav_school_view .table .action-td .active {
+    color: seagreen;
+}
+
+.sidenav_school_view .table .action-td .inactive {
+    color: coral;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav_school_view {
+        padding-top: 15px;
+    }
+
+    .sidenav_school_view a {
+        font-size: 18px;
+    }
+}
+
+
+/* css view class details styles */
+.sidenav_class_view {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9;
+    top: 70px;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.sidenav_class_view hr.line {
+    margin-top: 1.25rem !important;
+    margin-bottom: 0rem !important;
+}
+
+.sidenav_class_view a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav_class_view a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav_class_view h5 {
+    color: #ccc;
+    position: absolute;
+    top: 0;
+    /* left: 0; */
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.sidenav_class_view .closebtn {
+    cursor: pointer;
+    position: absolute;
+    top: -15px;
+    left: 0;
+    font-size: 36px;
+    margin-top: 15px;
+}
+
+/* .sidenav_class_view .label-details {
+    height: 80vh;
+    overflow-y: scroll;
+} */
+
+.sidenav_class_view .titles {
+    border: 1px double #f1f1f1;
+    background: linear-gradient(180deg, rgba(241,241,241,1) 100%, rgba(204,204,204,1) 100%);
+    padding: 5px;
+}
+
+.sidenav_class_view .titles h6 {
+    color: #333;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    word-spacing: 1.2px;
+}
+
+.sidenav_class_view .labels .icon {
+    color: cornflowerblue;
+    font-size: 16px;
+}
+
+.sidenav_class_view .labels .data h6 {
+    color: coral;
+    font-size: 16px;
+}
+
+.sidenav_class_view .labels .data p {
+    color: #818181;
+    font-size: 14px;
+}
+
+.sidenav_class_view .labels .data .iso {
+    color: #818181;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.sidenav_class_view .labels .data .email {
+    cursor: pointer;
+    color: cornflowerblue;
+}
+
+.sidenav_class_view .labels .data .email:hover {
+    color: dodgerblue;
+    text-decoration: underline;
+}
+
+.sidenav_class_view .labels .data .phone {
+    cursor: pointer;
+    color: mediumseagreen;
+}
+
+.sidenav_class_view .labels .data .phone:hover {
+    color: seagreen;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav_class_view {
+        padding-top: 15px;
+    }
+
+    .sidenav_class_view a {
+        font-size: 18px;
+    }
+}
+
+
+/* css view subject details styles */
+.sidenav_subject_view {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9;
+    top: 70px;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.sidenav_subject_view hr.line {
+    margin-top: 1.25rem !important;
+    margin-bottom: 0rem !important;
+}
+
+.sidenav_subject_view a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav_subject_view a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav_subject_view h5 {
+    color: #ccc;
+    position: absolute;
+    top: 0;
+    /* left: 0; */
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.sidenav_subject_view .closebtn {
+    cursor: pointer;
+    position: absolute;
+    top: -15px;
+    left: 0;
+    font-size: 36px;
+    margin-top: 15px;
+}
+
+/* .sidenav_subject_view .label-details {
+    height: 80vh;
+    overflow-y: scroll;
+} */
+
+.sidenav_subject_view .titles {
+    border: 1px double #f1f1f1;
+    background: linear-gradient(180deg, rgba(241,241,241,1) 100%, rgba(204,204,204,1) 100%);
+    padding: 5px;
+}
+
+.sidenav_subject_view .titles h6 {
+    color: #333;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    word-spacing: 1.2px;
+}
+
+.sidenav_subject_view .labels .icon {
+    color: cornflowerblue;
+    font-size: 16px;
+}
+
+.sidenav_subject_view .labels .data h6 {
+    color: coral;
+    font-size: 16px;
+}
+
+.sidenav_subject_view .labels .data p {
+    color: #818181;
+    font-size: 14px;
+}
+
+.sidenav_subject_view .labels .data .iso {
+    color: #818181;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.sidenav_subject_view .labels .data .email {
+    cursor: pointer;
+    color: cornflowerblue;
+}
+
+.sidenav_subject_view .labels .data .email:hover {
+    color: dodgerblue;
+    text-decoration: underline;
+}
+
+.sidenav_subject_view .labels .data .phone {
+    cursor: pointer;
+    color: mediumseagreen;
+}
+
+.sidenav_subject_view .labels .data .phone:hover {
+    color: seagreen;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav_subject_view {
+        padding-top: 15px;
+    }
+
+    .sidenav_subject_view a {
+        font-size: 18px;
+    }
+}
+
+
+/* css filters styles */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9;
+    top: 70px;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
+}
+
+.sidenav a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav h5 {
+    color: #ccc;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.sidenav .closebtn {
+    cursor: pointer;
+    position: absolute;
+    top: -15px;
+    right: 0;
+    font-size: 36px;
+    margin-top: 15px;
+}
+
+.sidenav .btn-action-reset {
+    cursor: pointer;
+    color: #333;
+    background-color: #f1f1f1;
+    padding: 5px;
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+}
+
+.sidenav .btn-action-reset:hover {
+    background-color: #ccc;
+}
+
+.sidenav .btn-action-apply {
+    cursor: pointer;
+    color: white;
+    background-color: cornflowerblue;
+    padding: 5px;
+    border: 1px solid cornflowerblue;
+    border-radius: 5px;
+}
+
+.sidenav .btn-action-apply:hover {
+    background-color: dodgerblue;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+
+/* update modal css styles */
+.modal .modal-dialog .modal-content {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.modal .modal-header {
+    color: white;
+    background-color: mediumseagreen;
+}
+
+.modal .modal-header .close:hover {
+    cursor: pointer;
+    color: white !important;
+}
+
+.modal .modal-body {
+    padding: 1.5rem !important;
+}
+
+.modal .modal-body p {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.modal .modal-body span {
+    color: #999;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+}
+
+.modal .modal-body table thead tr th {
+    font-weight: bold;
+}
+
+.modal .modal-footer {
+    border-top: none;
+}
+
+.modal .modal-footer .btn {
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border: none !important;
+}
+
+.modal .modal-footer .btn-primary {
+    cursor: pointer;
+    color: white;
+    background-color: mediumseagreen !important;
+}
+
+.modal .modal-footer .btn-primary:hover {
+    background-color: seagreen !important;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.modal .modal-footer .btn-secondary {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc !important;
+}
+
+.modal .modal-footer .btn-secondary:hover {
+    background-color: #999 !important;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}

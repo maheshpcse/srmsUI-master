@@ -1,0 +1,211 @@
+<!-- Sidebar Menu HTML -->
+<div class="page-wrapper chiller-theme toggled">
+    <a id="show-sidebar" class="btn btn-sm btn-dark">
+        <i class="fas fa-bars"></i>
+    </a>
+    <nav id="sidebar" class="sidebar-wrapper" style="z-index: 2 !important;">
+        <div class="sidebar-content">
+            <div class="sidebar-brand">
+                <a>S R M S <span class="ml-2">APP</span></a>
+                <div id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="sidebar-header">
+                <div class="user-pic">
+                    <img class="img-responsive img-rounded" src="../../assets/images/avatars/admin-avatar.png"
+                        alt="User picture">
+                </div>
+                <div class="user-info">
+                    <span class="user-name">Mahesh
+                        <strong>P</strong>
+                    </span>
+                    <span class="user-role">Administrator</span>
+                    <span class="user-status d-flex align-items-baseline">
+                        <i class="fa fa-circle"></i>
+                        <span>Online</span>
+                    </span>
+                </div>
+            </div>
+            <!-- sidebar-header  -->
+            <div class="sidebar-search">
+                <div>
+                    <div class="input-group">
+                        <input type="text" class="form-control search-menu" placeholder="Search...">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- sidebar-search  -->
+            <div class="sidebar-menu">
+                <ul>
+                    <!-- General Pages -->
+                    <li class="header-menu">
+                        <span>General</span>
+                    </li>
+                    <li [routerLink]="['/admin/home']">
+                        <a>
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-dropdown dropdown0" onclick="toggleClass(0)">
+                        <a>
+                            <i class="fas fa-school"></i>
+                            <span>School</span>
+                        </a>
+                        <div class="sidebar-submenu submenu0">
+                            <ul>
+                                <li [routerLink]="['/admin/school/add-edit-school']">
+                                    <a>Add Edit School</a>
+                                </li>
+                                <li [routerLink]="['/admin/school/bulk-upload-school']">
+                                    <a>Bulk Upload School</a>
+                                </li>
+                                <li [routerLink]="['/admin/school/manage-school']">
+                                    <a>Manage School</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="sidebar-dropdown dropdown1" onclick="toggleClass(1)">
+                        <a>
+                            <i class="fas fa-university"></i>
+                            <span>Class</span>
+                        </a>
+                        <div class="sidebar-submenu submenu1">
+                            <ul>
+                                <li [routerLink]="['/admin/class/add-edit-class']">
+                                    <a>Add Edit Class</a>
+                                </li>
+                                <li [routerLink]="['/admin/class/bulk-upload-class']">
+                                    <a>Bulk Upload Class</a>
+                                </li>
+                                <li [routerLink]="['/admin/class/manage-class']">
+                                    <a>Manage Class</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="sidebar-dropdown dropdown2" onclick="toggleClass(2)">
+                        <a>
+                            <i class="fas fa-book-open"></i>
+                            <span>Subject</span>
+                        </a>
+                        <div class="sidebar-submenu submenu2">
+                            <ul>
+                                <li [routerLink]="['/admin/subject/add-edit-subject']">
+                                    <a>Add Edit Subject</a>
+                                </li>
+                                <li [routerLink]="['/admin/subject/bulk-upload-subject']">
+                                    <a>Bulk Upload Subject</a>
+                                </li>
+                                <li [routerLink]="['/admin/subject/manage-subject']">
+                                    <a>Manage Subject</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="sidebar-dropdown dropdown3" onclick="toggleClass(3)">
+                        <a>
+                            <i class="fa fa-user-graduate"></i>
+                            <span>Student</span>
+                        </a>
+                        <div class="sidebar-submenu submenu3">
+                            <ul>
+                                <li [routerLink]="['/admin/student/add-edit-student']">
+                                    <a>Add Edit Student</a>
+                                </li>
+                                <li [routerLink]="['/admin/student/bulk-upload-student']">
+                                    <a>Bulk Upload Student</a>
+                                </li>
+                                <li [routerLink]="['/admin/student/manage-student']">
+                                    <a>Manage Student</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                     <!-- Result Pages -->
+                    <li class="header-menu">
+                        <span>Result</span>
+                    </li>
+                    <li class="sidebar-dropdown dropdown4" onclick="toggleClass(4)">
+                        <a>
+                            <i class="fa fa-poll"></i>
+                            <span>Student Result</span>
+                        </a>
+                        <div class="sidebar-submenu submenu4">
+                            <ul>
+                                <li [routerLink]="['/admin/student-result/add-edit-student-result']">
+                                    <a>Add Edit Student Result</a>
+                                </li>
+                                <li [routerLink]="['/admin/student-result/bulk-upload-student-result']">
+                                    <a>Bulk Upload Student Result</a>
+                                </li>
+                                <li [routerLink]="['/admin/student-result/manage-student-result']">
+                                    <a>Manage Student Result</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="sidebar-dropdown dropdown5" onclick="toggleClass(5)">
+                        <a>
+                            <i class="fa fa-th-large"></i>
+                            <span>Notice</span>
+                        </a>
+                        <div class="sidebar-submenu submenu5">
+                            <ul>
+                                <li [routerLink]="['/admin/notice/add-edit-notice']">
+                                    <a>Add Edit Notice</a>
+                                </li>
+                                <li [routerLink]="['/admin/notice/manage-notice']">
+                                    <a>Manage Notice</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- User Profile Pages -->
+                    <li class="header-menu">
+                        <span>User</span>
+                    </li>
+                    <li class="sidebar-dropdown dropdown6" onclick="toggleClass(6)">
+                        <a>
+                            <i class="fa fa-user-edit"></i>
+                            <span>Profile</span>
+                        </a>
+                        <div class="sidebar-submenu submenu6">
+                            <ul>
+                                <li [routerLink]="['/admin/profile/view-profile']">
+                                    <a>View Profile</a>
+                                </li>
+                                <li [routerLink]="['/admin/profile/update-profile']">
+                                    <a>Update Profile</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="sidebar-dropdown dropdown7" onclick="toggleClass(7)">
+                        <a>
+                            <i class="fa fa-user-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                        <div class="sidebar-submenu submenu7">
+                            <ul>
+                                <li [routerLink]="['/admin/settings/change-password']">
+                                    <a>Change Password</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- sidebar-menu  -->
+        </div>
+        <!-- sidebar-content  -->
+    </nav>
+</div>
+<!-- End Sidebar Menu HTML -->

@@ -1,0 +1,326 @@
+<header class="intro" id="mainNav">
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" id="navtopbar">
+        <div class="sidebar-brand ml-5" *ngIf="!showHide()">
+            <a>S R M S <span class="ml-2">APP</span></a>
+        </div>
+        <!-- Topbar Search -->
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for...">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fa fa-search fa-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <!-- Dark/Light Mode Checkbox -->
+        <!-- <form class="d-sm-inline-block form-inline ml-auto">
+            <input type="checkbox" id="toggle">
+            <label for="toggle" class="button btn-mode"></label>
+        </form> -->
+        <ul class="navbar-nav ml-auto">
+            <!-- <li class="nav-item dropdown no-arrow d-sm-none">
+                <a class="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-search fa-fw"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                    aria-labelledby="searchDropdown">
+                    <form class="form-inline mr-auto w-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for...">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fa fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </li> -->
+            <!-- <li class="nav-item no-arrow mx-1" (click)="checkValidateToken()" style="cursor: pointer;">
+                <a class="nav-link" id="alertsDropdown">
+                    <i class="fa fa-server fa-fw"></i>
+                </a>
+            </li> -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" id="alertsDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-bell fa-fw"></i>
+
+                    <span class="badge badge-danger badge-counter">3+</span>
+                </a>
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in">
+                    <h6 class="dropdown-header">
+                        Alerts Center
+                    </h6>
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="mr-3">
+                            <div class="icon-circle">
+                                <i class="fa fa-file"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">March 12, 2020</div>
+                            <span class="font-weight-bold">related snippets sent</span>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="mr-3">
+                            <div class="icon-circle">
+                                <i class="fa fa-user"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">Feb 7, 2020</div>
+                            you updated your profile!
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="mr-3">
+                            <div class="icon-circle">
+                                <i class="fa fa-download"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">Jan 2, 2020</div>
+                            You just downloaded 3 snippets
+                        </div>
+                    </a>
+                    <a class="dropdown-item text-center small text-gray-500">Show All</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" id="messagesDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-envelope fa-fw"></i>
+
+                    <span class="badge badge-danger badge-counter">4</span>
+                </a>
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="messagesDropdown">
+                    <h6 class="dropdown-header">
+                        Messages
+                    </h6>
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="../../../assets/images/srms.jpg" alt="">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div class="font-weight-bold">
+                            <div class="text-truncate">Thanks for your answer!</div>
+                            <div class="small text-gray-500">Andy flower &middot; 8m</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="../../../assets/images/srms.jpg" alt="">
+                            <div class="status-indicator"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">Can you answer bbb?</div>
+                            <div class="small text-gray-500">John wrong &middot; 4h</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="../../../assets/images/srms.jpg" alt="">
+                            <div class="status-indicator bg-warning"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">Your work is awesome</div>
+                            <div class="small text-gray-500"> Stanley &middot; 12h</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="../../../assets/images/srms.jpg" alt="">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">Thanks for your support</div>
+                            <div class="small text-gray-500">grand misi &middot; 2w</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item text-center small text-gray-500">Read all Messages</a>
+                </div>
+            </li>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">P M</span>
+                    <img class="img-profile rounded-circle" src="../../../assets/images/avatars/admin-avatar.png">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in user-dropdown-menu" aria-labelledby="userDropdown">
+                    <a class="dropdown-item user-info">
+                        <div class="img-info ml-3">
+                            <span>Mahesh Pachapalam</span>
+                            <span><em>Admin</em></span>
+                        </div>
+                    </a>
+                    <a class="dropdown-item mt-2" [routerLink]="['/admin/profile/view-profile']">
+                        <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/admin/settings/change-password']">
+                        <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Settings
+                    </a>
+                    <a class="dropdown-item">
+                        <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Activity Log
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <!-- data-toggle="modal" data-target="#logoutModal" -->
+                    <a class="dropdown-item" data-toggle="modal" data-target="#logoutConfirmModal">
+                        <!-- <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-400"></i> -->
+                        <i class="pi pi-sign-out fa-sm fa-fw mr-2 text-gray-400"></i>
+                        LOG OUT
+                    </a>
+                </div>
+            </li>
+            <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
+                <div class="dropdown-menu border-0 rounded-custom shadow py-0 bg-white" style="display: none;">
+                    <div class="dropdown-grid rounded-custom width-full">
+                        <div class="dropdown-grid-item">
+                            <h6 class="drop-heading">Useful Links</h6>
+                            <a href="about-us.html" class="dropdown-link px-0">
+                                <span class="me-2"><i class="far fa-fingerprint"></i></span>
+                                <div class="drop-title">About Us</div>
+                            </a>
+                            <a href="contact-us.html" class="dropdown-link px-0">
+                                <span class="me-2"><i class="far fa-address-book"></i></span>
+                                <div class="drop-title">Contact Us</div>
+                            </a>
+                            <a href="services.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-code-branch"></i></span>
+                                <div class="drop-title">Services</div>
+                            </a>
+                            <a href="service-single.html" class="dropdown-link px-0">
+                                <span class="me-2"><i class="far fa-server"></i></span>
+                                <div class="drop-title">Services Single</div>
+                            </a>
+                            <a href="blog.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-th-large"></i></span>
+                                <div class="drop-title">Our Latest News</div>
+                            </a>
+                            <a href="blog-single.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-bars"></i></span>
+                                <div class="drop-title">News Details</div>
+                            </a>
+                            <a href="career.html" class="dropdown-link px-0">
+                                <span class="me-2"><i class="far fa-graduation-cap"></i></span>
+                                <div class="drop-title">Career</div>
+                            </a>
+                            <a href="career-single.html" class="dropdown-link px-0">
+                                <span class="me-2"><i class="far fa-user-graduate"></i></span>
+                                <div class="drop-title">Career Single</div>
+                            </a>
+                            <a href="integrations.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-rocket-launch"></i></span>
+                                <div class="drop-title">Integrations</div>
+                            </a>
+                            <a href="integration-single.html" class="dropdown-link px-0">
+                                <span class="me-2"><i class="far fa-paper-plane"></i></span>
+                                <div class="drop-title">Integration Single</div>
+                            </a>
+                        </div>
+                        <div class="dropdown-grid-item radius-right-side bg-light">
+                            <h6 class="drop-heading">Utility Pages</h6>
+                            <a href="style-guide.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-code-branch"></i></span>
+                                <div class="drop-title">Style Guide</div>
+                            </a>
+                            <a href="support.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-life-ring"></i></span>
+                                <div class="drop-title">Help Center</div>
+                            </a>
+                            <a href="support-single.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-headset"></i></span>
+                                <div class="drop-title">Help Details</div>
+                            </a>
+                            <a href="request-demo.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-laptop-code"></i></span>
+                                <div class="drop-title">Request for Demo</div>
+                            </a>
+                            <a href="login.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-sign-in"></i></span>
+                                <div class="drop-title">User Login</div>
+                            </a>
+                            <a href="register.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-user-plus"></i></span>
+                                <div class="drop-title">User SignUp</div>
+                            </a>
+                            <a href="password-reset.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-trash-undo"></i></span>
+                                <div class="drop-title">Recovery Account</div>
+                            </a>
+                            <a href="404.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-exclamation-triangle"></i></span>
+                                <div class="drop-title">404 Page</div>
+                            </a>
+                            <a href="coming-soon.html" class="dropdown-link">
+                                <span class="me-2"><i class="far fa-clock"></i></span>
+                                <div class="drop-title">Coming Soon</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li> -->
+        </ul>
+    </nav>
+</header>
+
+<!-- Logout Confirmation Modal -->
+<div class="modal-box">
+    <div class="modal fade" id="logoutConfirmModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <div class="modal-body">
+                    <h3 class="title">Session Logout Confirmation</h3>
+                    <div class="log-time mt-5">
+                        <p class="p1">Are you sure,</p>
+                        <p class="p2">you want to logout from the session?</p>
+                    </div>
+                    <div class="d-flex justify-content-around align-items-baseline mt-5">
+                        <button class="subscribe" (click)="logOut()">Yes</button>
+                        <button class="cancel ml-2" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Auto Logout Modal -->
+<div class="modal-box">
+    <div class="modal fade" id="restartConfirmModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <div class="modal-body">
+                    <h3 class="title">Session Restart Confirmation</h3>
+                    <div class="show-time d-flex justify-content-center align-items-baseline mt-5">
+                        <p class="description">Your profile session ends in</p>
+                        <span class="ml-2">:</span>
+                        <span class="display ml-3" [ngClass]="colorObj">
+                            {{ sessionTime }}
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-around align-items-baseline mt-5">
+                        <button class="subscribe" (click)="logOut()">Logout</button>
+                        <button class="cancel ml-2" (click)="reSignIn()">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

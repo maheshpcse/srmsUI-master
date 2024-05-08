@@ -1,0 +1,411 @@
+.form-title h6 {
+    color: chocolate;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: 5px 0px 10px 10px;
+    border-left: 5px solid chocolate;
+}
+
+.card {
+    background-color: white;
+}
+
+.card .card-body {
+    padding: 5px;
+}
+
+.card .card-body label,
+p,
+span {
+    font-size: 0.9em;
+}
+
+.card .card-body em {
+    font-size: 0.8em;
+}
+
+.card .card-body label {
+    color: #333;
+    font-weight: bold;
+}
+
+.card .card-body input,
+select {
+    height: 40px;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body textarea {
+    padding: 10px;
+    font-size: 0.9em;
+    color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body table thead tr th {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card .card-body table tbody tr td {
+    color: #999;
+    font-size: 0.9em;
+    vertical-align: middle !important;
+}
+
+.card .card-body table tbody tr .td-status .active {
+    color: seagreen;
+}
+
+.card .card-body table tbody tr .td-status .inactive {
+    color: tomato;
+}
+
+.card .card-body table tbody tr .td-action {
+    cursor: pointer;
+}
+
+.card .card-body table tbody tr td .dropdown-menu {
+    margin-left: 50px;
+}
+
+.card .card-body table tbody tr td .dropdown-menu .dropdown-item {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.card .card-body .pagination .right-side .list-group {
+    flex-direction: row !important;
+}
+
+.card .card-body .pagination .right-side .list-group .list-group-item {
+    border: none;
+    cursor: pointer;
+}
+
+.card .card-body .pagination .right-side .list-group .list-group-item.active {
+    color: white;
+    background-color: coral;
+    margin-top: 0px;
+}
+
+.card .card-body .pagination .right-side .list-group .list-group-item:hover {
+    color: white;
+    background-color: lightcoral;
+}
+
+.card .card-header .form-group {
+    margin-bottom: 0rem;
+}
+
+.card .card-header .btn-action-search {
+    cursor: pointer;
+    color: white;
+    background-color: cornflowerblue;
+    /* height: 40px;
+    padding: 10px; */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.card .card-header .btn-action-search:hover {
+    background-color: dodgerblue;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-reset {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc;
+    /* height: 40px;
+    padding: 10px; */
+}
+
+.card .card-header .btn-action-reset:hover {
+    background-color: firebrick;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body .btn-action-clear {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body .btn-action-clear:hover {
+    background-color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body .btn-action-upload {
+    cursor: pointer;
+    color: white;
+    background-color: mediumseagreen;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body .btn-action-upload:hover {
+    background-color: seagreen;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body .btn-action-download {
+    cursor: pointer;
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 0px;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body .btn-action-download:hover {
+    background-color: dodgerblue;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body .btn-action-submit {
+    cursor: pointer;
+    color: white;
+    background-color: mediumseagreen;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body .btn-action-submit:hover {
+    background-color: seagreen;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-footer .btn-action-previous {
+    cursor: pointer;
+    color: white;
+    background-color: #dee2ec;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-footer .btn-action-previous:hover {
+    background-color: #ccc;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-footer .btn-action-reset {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-footer .btn-action-reset:hover {
+    background-color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-footer .btn-action-submit {
+    cursor: pointer;
+    color: white;
+    background-color: mediumseagreen;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-footer .btn-action-submit:hover {
+    background-color: seagreen;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+
+/* upload a file css styles */
+.card-0 {
+    color: white;
+    border: 0px;
+    border-radius: 20px;
+}
+
+.card-0 p {
+    font-size: 15px;
+    line-height: 25px !important;
+    font-weight: 500;
+}
+
+.card-0 input {
+    padding: 10px 12px 10px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 0px !important;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px;
+    resize: none;
+}
+
+.card-0 label {
+    margin-bottom: 2px;
+    font-weight: bolder;
+    font-size: 14px;
+    color: cornflowerblue;
+    border-left: 5px solid coral;
+    padding: 0px 10px 0px 10px;
+}
+
+.card-0 input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #304FFE;
+    outline-width: 0
+}
+
+.card-0 button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.card-0 .form-control {
+    height: calc(2em + .75rem + 3px);
+}
+
+.card-0 .inner-card {
+    margin: 79px 0px 70px 0px;
+}
+
+.card-0 .loading {
+    color: #999;
+    font-size: 1.1em;
+}
+
+.card-0 .loading span i {
+    font-size: 1.1em;
+}
+
+.card-0 #file {
+    border: 2px dashed #92b0b3 !important;
+}
+
+.card-0 .color input {
+    background-color: #f1f1f1;
+}
+
+.card-0 .files:before {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    content: attr(data-before);
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.card-0 #file {
+    display: inline-block;
+    width: 100%;
+    padding: 95px 0 0 100%;
+    background: url('../../../../assets/images/upload2.png') top center no-repeat #fff;
+    background-size: 55px 55px;
+}
+
+
+/* add/update modal css styles */
+.modal .modal-dialog .modal-content {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.modal .modal-header {
+    color: white;
+    background-color: mediumseagreen;
+}
+
+.modal .modal-header .close:hover {
+    cursor: pointer;
+    color: white !important;
+}
+
+.modal .modal-body {
+    padding: 1.5rem !important;
+}
+
+.modal .modal-body p {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.modal .modal-body span {
+    color: #999;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+}
+
+.modal .modal-footer {
+    border-top: none;
+}
+
+.modal .modal-footer .btn {
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border: none !important;
+}
+
+.modal .modal-footer .btn-primary {
+    cursor: pointer;
+    color: white;
+    background-color: mediumseagreen !important;
+}
+
+.modal .modal-footer .btn-primary:hover {
+    background-color: seagreen !important;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.modal .modal-footer .btn-secondary {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc !important;
+}
+
+.modal .modal-footer .btn-secondary:hover {
+    background-color: #999 !important;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}

@@ -1,0 +1,191 @@
+<app-admin-header></app-admin-header>
+
+<main>
+    <div class="form-title">
+        <h6>Add Edit School Details :</h6>
+    </div>
+    <div class="card form-data">
+        <div class="card-body">
+            <form #schoolForm="ngForm">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="my-auto">Primary Details :</label>
+                        </div>
+                        <br><br>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="schoolname" class="field-required">School Name</label>
+                                <input type="text" class="form-control" name="schoolname" id="schoolnameid"
+                                    placeholder="Enter School Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="status" class="field-required">Status</label>
+                                <select class="form-control" name="statusname" id="statusid" required>
+                                    <option value="null" selected disabled>Select Current Status :</option>
+                                    <option value="0">Closed (Not running)</option>
+                                    <option value="1">Opened (Running)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="iso" class="field-required">ISO Certified</label>
+                                <!-- <select class="form-control" name="isoname" id="isoid" required>
+                                    <option value="null" selected disabled>Select ISO Status :</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select> -->
+                                <div class="form-group">
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label d-flex align-items-center">
+                                            <input type="radio" class="form-check-input" name="isoname" id="isoyes">
+                                            <span>Yes</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline ml-5">
+                                        <label class="form-check-label d-flex align-items-center">
+                                            <input type="radio" class="form-check-input" name="isoname" id="isono">
+                                            <span>No</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="my-auto">Address Details :</label>
+                        </div>
+                        <br><br>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="addressname" class="field-required">School Address</label>
+                                <textarea class="form-control" name="addressname" id="addressnameid" cols="3" rows="3"
+                                    placeholder="Enter School Address" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="city" class="field-required">City</label>
+                                <input type="text" class="form-control" name="cityname" id="cityid"
+                                    placeholder="Enter City Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="state" class="field-required">State</label>
+                                <input type="text" class="form-control" name="statename" id="stateid"
+                                    placeholder="Enter State Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="zipcode" class="field-required">Zip Code</label>
+                                <input type="number" class="form-control" name="zipcodename" id="zipcodeid"
+                                    placeholder="Enter Zip Code" required>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="my-auto">Contact Details :</label>
+                        </div>
+                        <br><br>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="email" class="field-required">Email</label>
+                                <input type="email" class="form-control" name="emailname" id="emailid"
+                                    placeholder="Enter Email" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="contact" class="field-required">Phone Number</label>
+                                <input type="number" class="form-control" name="contactname" id="contactid"
+                                    placeholder="Enter Phone Number" required>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group input-group">
+                                <button class="btn btn-action-submit col-4" data-toggle="modal"
+                                    data-target="#submitReqModal" (click)="submitReq = 0;">
+                                    Submit
+                                </button>
+                                <button class="btn btn-action-reset col-4 ml-3">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <app-admin-sidemenu></app-admin-sidemenu>
+</main>
+
+<app-admin-footer></app-admin-footer>
+
+<!-- Submit request modal -->
+<div class="modal fade" id="submitReqModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" *ngIf="submitReq == 0">
+                <h6 class="modal-title" id="exampleModalLabel">{{ action | titlecase }} School Confirmation</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="submitReq == 0">
+                    <p class="text-center">
+                        Are you sure, you want to {{ action == 'Add' ? 'add new' : 'update' }} school
+                        details?</p>
+                    <span class="text-center text-muted">
+                        <em>This change will reflect in your portal after sometime.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 1">
+                    <br>
+                    <span class="text-center text-muted">
+                        <span><i class="pi pi-spin pi-spinner" style="font-size: 2rem;"></i></span>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 2">
+                    <span class="text-center">
+                        <span><i class="pi pi-check" style="font-size: 2rem;color: seagreen;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Your request is processed successfully.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 3">
+                    <span class="text-center">
+                        <span><i class="pi pi-times" style="font-size: 2rem;color: orangered;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Error while processing the request.</em>
+                    </span>
+                </ng-container>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <ng-container *ngIf="submitReq == 0">
+                    <button type="button" class="btn btn-primary" (click)="saveData()">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 2 || submitReq == 3">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

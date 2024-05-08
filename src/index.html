@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SrmsUI</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+     <!-- Google Fonts CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/google-fonts.css">
+
+    <!-- Font Awesome Icons 5 CSS -->
+    <link type="text/css" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+
+    <!-- Loading-bar CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/loading-bar.css" />
+
+    <!-- Admin Header and Sidemenu Page CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/sidemenu.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/demo.css">
+
+    <!-- Admin Login Page CSS -->
+    <link rel="stylesheet" href="./assets/fontfamily/icomoon/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="mat-typography">
+    <app-root></app-root>
+
+    <!-- Jquery Files -->
+    <script src="./assets/js/jquery-2.1.1.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+
+    <!-- Loading-bar JS -->
+    <script type="text/javascript" src="./assets/js/loading-bar.js"></script>
+
+    <!-- Admin Sidemenu Page JS -->
+    <script>
+        function toggleClass(id) {
+            jQuery(function ($) {
+                var isActive = $(`.dropdown${id}`).toggleClass("active");
+                if (isActive.hasClass('active')) {
+                    $(`.dropdown${id}`).addClass("active");
+                    $(`.submenu${id}`).addClass("active");
+                    $(`.submenu${id}`).slideDown(200);
+                } else {
+                    $(`.dropdown${id}`).removeClass("active");
+                    $(`.submenu${id}`).removeClass("active");
+                    $(`.submenu${id}`).slideUp(200);
+                }
+            });
+        }
+
+        jQuery(function ($) {
+            var topBarId = document.getElementById('mainNav');
+            var mainTag = document.getElementsByTagName('main');
+            $("#close-sidebar").click(function () {
+                $(".page-wrapper").removeClass("toggled");
+                topBarId.style.marginLeft = '0%';
+                topBarId.style.transition = 'margin-left 0.5s';
+                for (let i = 0; i < mainTag.length; i += 1) {
+                    mainTag[i].style.marginLeft = '0%';
+                    mainTag[i].style.transition = 'margin-left 0.5s';
+                }
+                getValue(true);
+            });
+            $("#show-sidebar").click(function () {
+                $(".page-wrapper").addClass("toggled");
+                topBarId.style.marginLeft = '20%';
+                for (let i = 0; i < mainTag.length; i += 1) {
+                    mainTag[i].style.marginLeft = '20%';
+                }
+                getValue(false);
+            });
+        });
+
+        function getValue(value = true) {
+            return value;
+        }
+
+        // jQuery(function ($) {
+            // $(".sidebar-dropdown > a").click(function () {
+            //     $(".sidebar-submenu").slideUp(200);
+            //     if (
+            //         $(this)
+            //             .parent()
+            //             .hasClass("active")
+            //     ) {
+            //         console.log('enters in if block');
+            //         $(".sidebar-dropdown").removeClass("active");
+            //         $(this)
+            //             .next(".sidebar-submenu")
+            //             .slideUp(200);
+            //         $(this)
+            //             .parent()
+            //             .removeClass("active");
+            //     } else {
+            //         console.log('enters in else block');
+            //         $(".sidebar-dropdown").addClass("active");
+            //         $(this)
+            //             .next(".sidebar-submenu")
+            //             .slideDown(200);
+            //         $(this)
+            //             .parent()
+            //             .addClass("active");
+            //     }
+            // });
+        // });
+    </script>
+
+    <!-- Admin Login Page JS -->
+    <script src="./assets/js/admin-login.js"></script>
+</body>
+
+</html>

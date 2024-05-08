@@ -1,0 +1,168 @@
+.form-title h6 {
+    color: chocolate;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: 5px 0px 10px 10px;
+    border-left: 5px solid chocolate;
+}
+
+.card {
+    background-color: white;
+}
+
+.card .card-body {
+    padding: 5px;
+}
+
+.card .card-body label,
+p,
+span {
+    font-size: 0.9em;
+}
+
+.card .card-body em {
+    font-size: 0.8em;
+}
+
+.card .card-body label {
+    color: #333;
+    font-weight: bold;
+}
+
+.card .card-body input,
+select {
+    height: 40px;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body textarea {
+    padding: 10px;
+    font-size: 0.9em;
+    color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body .btn-action-reset {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body .btn-action-reset:hover {
+    background-color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body .btn-action-submit {
+    cursor: pointer;
+    color: white;
+    background-color: mediumseagreen;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body .btn-action-submit:hover {
+    background-color: seagreen;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body .btn-action-plus {
+    cursor: pointer;
+    color: white;
+    background-color: cornflowerblue;
+}
+
+.card .card-body .btn-action-plus:hover {
+    background-color: dodgerblue;
+}
+
+.card .card-body .btn-action-minus {
+    cursor: pointer;
+    color: white;
+    background-color: lightcoral;
+}
+
+.card .card-body .btn-action-minus:hover {
+    background-color: coral;
+}
+
+
+/* add/update modal css styles */
+.modal .modal-dialog .modal-content {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.modal .modal-header {
+    color: white;
+    background-color: mediumseagreen;
+}
+
+.modal .modal-header .close:hover {
+    cursor: pointer;
+    color: white !important;
+}
+
+.modal .modal-body {
+    padding: 1.5rem !important;
+}
+
+.modal .modal-body p {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.modal .modal-body span {
+    color: #999;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+}
+
+.modal .modal-footer {
+    border-top: none;
+}
+
+.modal .modal-footer .btn {
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border: none !important;
+}
+
+.modal .modal-footer .btn-primary {
+    cursor: pointer;
+    color: white;
+    background-color: mediumseagreen !important;
+}
+
+.modal .modal-footer .btn-primary:hover {
+    background-color: seagreen !important;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.modal .modal-footer .btn-secondary {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc !important;
+}
+
+.modal .modal-footer .btn-secondary:hover {
+    background-color: #999 !important;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}

@@ -1,0 +1,399 @@
+<app-admin-header></app-admin-header>
+
+<main>
+    <div class="form-title">
+        <h6>Add Edit Student Result Details :</h6>
+    </div>
+    <div class="card form-data">
+        <div class="card-body">
+            <form #studentResultForm="ngForm">
+                <div class="container-fluid">
+                    <!-- Student info fields -->
+                    <div class="row" *ngIf="formStep == 1">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="schoolname" class="field-required">School</label>
+                                <select class="form-control" name="schoolname" id="schoolid"
+                                    [(ngModel)]="selectSchoolId" required>
+                                    <option value="null" selected disabled>Select School :</option>
+                                    <option [value]="item.school_id" *ngFor="let item of schoolsList;">
+                                        {{ item?.schoolName }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="classname" class="field-required">Class</label>
+                                <select class="form-control" name="classname" id="classnameid"
+                                    [(ngModel)]="selectClassId" (change)="onSelectClass(selectClassId)" required>
+                                    <option value="null" selected disabled>Select Class :</option>
+                                    <option [value]="item.value" *ngFor="let item of classesList;">
+                                        {{ item?.name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="sectiontype" class="field-required">Section Type</label>
+                                <select class="form-control" name="sectionname" id="sectionnameid"
+                                    [(ngModel)]="selectSectionId">
+                                    <option value="null" selected disabled>Select Section :</option>
+                                    <option [value]="data.value" *ngFor="let data of sectionTypesList;">
+                                        {{ data?.name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="form-group input-group justify-content-end">
+                                <button class="btn btn-action-reset">
+                                    Reset
+                                </button>
+                                <button class="btn btn-action-submit ml-2" (click)="onGetStudents()">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card form-data">
+                                <div class="card-header d-flex justify-content-between align-items-baseline">
+                                    <div class="form-title">
+                                        <h6>Class List :</h6>
+                                    </div>
+                                    <div class="form-group input-group ml-2" style="width: 50% !important;">
+                                        <button class="btn btn-action-list dropdown ml-2">
+                                            <span type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <i class="pi pi-list"></i>
+                                            </span>
+                                            <div class="dropdown-menu dropdown-menu-right p-0 mt-2"
+                                                aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item d-flex align-items-center form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" name="studentidname" id="studentid">
+                                                        <span class="ml-2">Student ID</span>
+                                                    </label>
+                                                </a>
+                                                <a class="dropdown-item d-flex align-items-center form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" name="studentname" id="studentnameid">
+                                                        <span class="ml-2">Student Name</span>
+                                                    </label>
+                                                </a>
+                                            </div>
+                                        </button>
+                                        <input type="text" class="form-control" name="searchname" id="searchnameid"
+                                            placeholder="Quick search" [(ngModel)]="searchQuery"
+                                            (keyup.enter)="onSearchStudent()" (keypress.enter)="onSearchStudent()">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-action-search">
+                                                <span *ngIf="!searchQuery"><i class="pi pi-search"></i></span>
+                                                <span *ngIf="searchQuery"><i class="pi pi-check"></i></span>
+                                            </button>
+                                            <button class="btn btn-action-reset ml-2" [disabled]="!searchQuery"
+                                                (click)="resetSearchFilters()">
+                                                <span><i class="pi pi-times"></i></span>
+                                            </button>
+                                            <button class="btn btn-action-filters ml-2" (click)="openFilters()">
+                                                <span><i class="pi pi-filter"></i></span>
+                                                <!-- <span class="ml-2">Filter</span> -->
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table class="table table-borderless table-hover table-striped">
+                                                    <thead>
+                                                        <tr scope="col">
+                                                            <th class="text-center">S.No</th>
+                                                            <th>Student ID</th>
+                                                            <th>Student Name</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr scope="row"
+                                                            *ngFor="let item of studentsList; let i = index;">
+                                                            <td class="text-center">{{ i + 1 }}</td>
+                                                            <td>{{ item?.studentId }}</td>
+                                                            <td>{{ item?.studentName }}</td>
+                                                            <td class="td-action">
+                                                                <div class="dropdown">
+                                                                    <span id="dropdownMenuButton" data-toggle="dropdown"
+                                                                        aria-expanded="false">
+                                                                        <i class="pi pi-ellipsis-h"
+                                                                            style="font-size: 1.5rem;color: #999;"></i>
+                                                                    </span>
+                                                                    <div class="dropdown-menu dropdown-menu-right p-0"
+                                                                        aria-labelledby="dropdownMenuButton">
+                                                                        <a class="dropdown-item d-flex"
+                                                                            *ngIf="item?.status === 0"
+                                                                            (click)="gotoForm(2);onSelectStudent(item, 'add')">
+                                                                            <span><i class="pi pi-plus"></i></span>
+                                                                            <span class="ml-2">Add marks</span>
+                                                                        </a>
+                                                                        <a class="dropdown-item d-flex"
+                                                                            *ngIf="item?.status === 1"
+                                                                            (click)="gotoForm(2);onSelectStudent(item, 'update')">
+                                                                            <span><i class="pi pi-pencil"></i></span>
+                                                                            <span class="ml-2">Edit marks</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr scope="row" style="background: white !important;"
+                                                            *ngIf="studentsList?.length == 0">
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td>
+                                                                <div class="no-data" style="width: 50px;">
+                                                                    <div class="no-data-img">
+                                                                        <img src="../../../../assets/images/no-data-found.png"
+                                                                            alt="_noDataImg"
+                                                                            class="rounded-circle img-responsive">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr></tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="pagination d-flex justify-content-between">
+                                        <div class="left-side d-flex align-items-center" style="width: 30% !important;">
+                                            <span>Showing</span>
+                                            <select class="form-control ml-2" name="pagename" id="pageid"
+                                                style="width: 25% !important;">
+                                                <option selected>5</option>
+                                                <option>10</option>
+                                                <option>15</option>
+                                                <option>20</option>
+                                            </select>
+                                            <span class="ml-2">Rows Out Of 10</span>
+                                        </div>
+                                        <div class="right-side">
+                                            <ul
+                                                class="list-group list-group-flush pagination-list d-flex align-items-center">
+                                                <li class="list-group-item">
+                                                    <<< /li>
+                                                <li class="list-group-item ml-2">Prev</li>
+                                                <li class="list-group-item active ml-2">1</li>
+                                                <li class="list-group-item ml-2">2</li>
+                                                <li class="list-group-item ml-2">3</li>
+                                                <li class="list-group-item ml-2">4</li>
+                                                <li class="list-group-item ml-2">5</li>
+                                                <li class="list-group-item ml-2">Next</li>
+                                                <li class="list-group-item ml-2">>></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Marks info fields -->
+                    <div class="row" *ngIf="formStep == 2">
+                        <div class="col-md-12">
+                            <div class="card form-data">
+                                <div class="card-header d-flex justify-content-between align-items-baseline">
+                                    <div class="form-title d-flex align-items-baseline">
+                                        <h6>Student ID :</h6>
+                                        <p class="ml-2">STU001</p>
+                                    </div>
+                                    <div class="right-data d-flex justify-content-between align-items-baseline">
+                                        <div class="d-flex align-items-baseline">
+                                            <h6>Student Name :</h6>
+                                            <span class="ml-2">Test Zero Zero One</span>
+                                        </div>
+                                        <div class="d-flex align-items-baseline ml-5">
+                                            <h6>Class :</h6>
+                                            <span class="ml-2">X</span>
+                                        </div>
+                                        <div class="d-flex align-items-baseline ml-5">
+                                            <h6>Section :</h6>
+                                            <span class="ml-2">A</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table class="table table-borderless table-hover">
+                                                    <thead>
+                                                        <tr scope="col">
+                                                            <th class="text-center">S.No</th>
+                                                            <th class="th-or">Subject <em>(or)</em> Language</th>
+                                                            <th class="th-marks">Marks <em class="ml-2">(total / 100)</em></th>
+                                                            <th>Grade</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr scope="row"
+                                                            *ngFor="let item of subjectsList; let i = index;">
+                                                            <td class="text-center">{{ i + 1 }}</td>
+                                                            <td>{{ item?.name }}</td>
+                                                            <td>
+                                                                <div class="form-group" style="width: 50%">
+                                                                    <input type="number" class="form-control"
+                                                                        name="marksname" id="marksid" placeholder="Enter marks" [value]="getMarks(i)" (input)="changeMarks(i, $event)" required>
+                                                                </div>
+                                                            </td>
+                                                            <td>{{ item?.grade }}</td>
+                                                        </tr>
+                                                        <tr scope="row">
+                                                            <td class="text-center"></td>
+                                                            <td>Total Marks :</td>
+                                                            <td>
+                                                                <div class="form-group" style="width: 50%">
+                                                                    <input type="number" class="form-control"
+                                                                        name="totalmarksname" id="totalmarksid"
+                                                                        [(ngModel)]="totalMarks" readonly required>
+                                                                </div>
+                                                            </td>
+                                                            <td>Pass</td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr></tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <div class="form-group input-group">
+                                <button class="btn btn-action-previous" (click)="gotoForm(1)">
+                                    Previous
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-8 mt-3">
+                            <div class="form-group input-group justify-content-end">
+                                <button class="btn btn-action-reset">
+                                    Reset
+                                </button>
+                                <button class="btn btn-action-submit ml-2" data-toggle="modal"
+                                    data-target="#submitReqModal" (click)="submitReq = 0;">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <app-admin-sidemenu></app-admin-sidemenu>
+</main>
+
+<app-admin-footer></app-admin-footer>
+
+<!-- Filters -->
+<div id="mySidenav" class="sidenav">
+    <div class="d-flex justify-content-between align-items-center">
+        <h5>Filters</h5>
+        <a class="closebtn" (click)="closeFilters()">&times;</a>
+    </div>
+    <hr style="margin-top: 1.25rem !important;">
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select class="form-control" name="statusName" id="statusId" [(ngModel)]="statusFilter">
+                        <option value="all" selected disabled>All Status</option>
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="form-group input-group d-flex justify-content-center align-items-baseline">
+                    <button class="btn btn-action-reset col-4" type="reset" (click)="resetFilter()">Reset</button>
+                    <button class="btn btn-action-apply col-4 ml-2" type="submit" (click)="applyFilter()">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Submit request modal -->
+<div class="modal fade" id="submitReqModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" *ngIf="submitReq == 0">
+                <h6 class="modal-title" id="exampleModalLabel">{{ action | titlecase }} Student Result Confirmation</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="submitReq == 0">
+                    <p class="text-center">
+                        Are you sure, you want to {{ action == 'Add' ? 'add new' : 'update' }} student result
+                        details?</p>
+                    <span class="text-center text-muted">
+                        <em>This change will reflect in your portal after sometime.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 1">
+                    <br>
+                    <span class="text-center text-muted">
+                        <span><i class="pi pi-spin pi-spinner" style="font-size: 2rem;"></i></span>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 2">
+                    <span class="text-center">
+                        <span><i class="pi pi-check" style="font-size: 2rem;color: seagreen;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Your request is processed successfully.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 3">
+                    <span class="text-center">
+                        <span><i class="pi pi-times" style="font-size: 2rem;color: orangered;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Error while processing the request.</em>
+                    </span>
+                </ng-container>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <ng-container *ngIf="submitReq == 0">
+                    <button type="button" class="btn btn-primary" (click)="saveData()">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 2 || submitReq == 3">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

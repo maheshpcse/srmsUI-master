@@ -1,0 +1,328 @@
+<app-admin-header></app-admin-header>
+
+<main>
+    <div class="form-title">
+        <h6>Add Edit Student Details :</h6>
+    </div>
+    <div class="card form-data">
+        <div class="card-body">
+            <form #studentForm="ngForm">
+                <div class="container-fluid">
+                    <!-- Personal info fields -->
+                    <div class="row" *ngIf="formStep == 1">
+                        <!-- <div class="col-md-6 form-titles">
+                            <span class="num">1</span>
+                            <span class="title ml-2">Personal Details :</span>
+                        </div>
+                        <div class="col-md-6"></div> -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="schoolname" class="field-required">School</label>
+                                <select class="form-control" name="schoolname" id="schoolid"
+                                    [(ngModel)]="selectSchoolId" required>
+                                    <option value="null" selected disabled>Select School :</option>
+                                    <option [value]="item.school_id" *ngFor="let item of schoolsList;">
+                                        {{ item?.schoolName }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="classname" class="field-required">Class</label>
+                                <select class="form-control" name="classname" id="classnameid"
+                                    [(ngModel)]="selectClassId" (change)="onSelectClass(selectClassId)" required>
+                                    <option value="null" selected disabled>Select Class :</option>
+                                    <option [value]="item.value" *ngFor="let item of classesList;">
+                                        {{ item?.name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="admissionnum" class="field-required">Admission Number</label>
+                                <input type="number" class="form-control" name="admissionidname" id="admissionid"
+                                    placeholder="Enter Admission Number" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="studentid" class="field-required">Student ID</label>
+                                <input type="text" class="form-control" name="studentnameid" id="studentid"
+                                    placeholder="Enter Student ID" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="fullname" class="field-required">Full Name</label>
+                                <input type="text" class="form-control" name="fullname" id="fullnameid"
+                                    placeholder="Enter Full Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="gender" class="field-required">Gender</label>
+                                <select class="form-control" name="gendername" id="genderid" required>
+                                    <option value="null" selected disabled>Select Type :</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="age" class="field-required">Age</label>
+                                <input type="number" class="form-control" name="agename" id="ageid"
+                                    placeholder="Enter Age" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="dateofbirth" class="field-required">Date of Birth</label>
+                                <input type="number" class="form-control" name="dobname" id="dobid"
+                                    placeholder="Enter Date of Birth" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="email" class="d-flex">
+                                    Email
+                                    <span class="ml-2"><em>(optional)</em></span>
+                                </label>
+                                <input type="email" class="form-control" name="emailname" id="emailid"
+                                    placeholder="Enter Email Address">
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="form-group input-group">
+                                <button class="btn btn-action-reset">
+                                    Reset
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="form-group input-group justify-content-end">
+                                <button class="btn btn-action-draft">
+                                    Save As Draft
+                                </button>
+                                <button class="btn btn-action-submit ml-2" (click)="gotoForm(2)">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Family info fields -->
+                    <div class="row" *ngIf="formStep == 2">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="father" class="field-required">Father Name</label>
+                                <input type="text" class="form-control" name="fathername" id="fatherid"
+                                    placeholder="Enter Father Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="occupation1" class="field-required">Father Occupation</label>
+                                <input type="text" class="form-control" name="occupation1name" id="occupation1id"
+                                    placeholder="Enter Father Occupation" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="mother" class="field-required">Mother Name</label>
+                                <input type="text" class="form-control" name="mothername" id="motherid"
+                                    placeholder="Enter Mother Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="occupation2" class="field-required">Mother Occupation</label>
+                                <input type="text" class="form-control" name="occupation2name" id="occupation2id"
+                                    placeholder="Enter Mother Occupation" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="sibling1" class="d-flex">
+                                    Sibling 1
+                                    <span class="ml-2"><em>(optional)</em></span>
+                                </label>
+                                <input type="text" class="form-control" name="sibling1name" id="sibling1id"
+                                    placeholder="Enter Sibling name">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="sibling2" class="d-flex">
+                                    Sibling 2
+                                    <span class="ml-2"><em>(optional)</em></span>
+                                </label>
+                                <input type="text" class="form-control" name="sibling2name" id="sibling2id"
+                                    placeholder="Enter Sibling name">
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="primarynum" class="field-required">Primary Contact</label>
+                                <input type="number" class="form-control" name="primaryname" id="primaryid"
+                                    placeholder="Enter Primary Contact" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="secondarynum" class="d-flex">
+                                    Secondary Contact
+                                    <span class="ml-2"><em>(optional)</em></span>
+                                </label>
+                                <input type="number" class="form-control" name="secondaryname" id="secondaryid"
+                                    placeholder="Enter Secondary Contact">
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="form-group input-group">
+                                <button class="btn btn-action-previous" (click)="gotoForm(1)">
+                                    Previous
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group input-group justify-content-end">
+                                <button class="btn btn-action-reset">
+                                    Reset
+                                </button>
+                                <button class="btn btn-action-draft ml-2">
+                                    Save As Draft
+                                </button>
+                                <button class="btn btn-action-submit ml-2" (click)="gotoForm(3)">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Address info fields -->
+                    <div class="row" *ngIf="formStep == 3">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="addressname" class="field-required">Address</label>
+                                <textarea class="form-control" name="addressname" id="addressnameid" cols="3" rows="3"
+                                    placeholder="Enter Address" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="city" class="field-required">City</label>
+                                <input type="text" class="form-control" name="cityname" id="cityid"
+                                    placeholder="Enter City Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="state" class="field-required">State</label>
+                                <input type="text" class="form-control" name="statename" id="stateid"
+                                    placeholder="Enter State Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="zipcode" class="field-required">Zip Code</label>
+                                <input type="number" class="form-control" name="zipcodename" id="zipcodeid"
+                                    placeholder="Enter Zip Code" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div class="form-group input-group">
+                                <button class="btn btn-action-previous" (click)="gotoForm(2)">
+                                    Previous
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group input-group justify-content-end">
+                                <button class="btn btn-action-reset">
+                                    Reset
+                                </button>
+                                <button class="btn btn-action-submit ml-2" data-toggle="modal"
+                                    data-target="#submitReqModal" (click)="submitReq = 0;">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <app-admin-sidemenu></app-admin-sidemenu>
+</main>
+
+<app-admin-footer></app-admin-footer>
+
+<!-- Submit request modal -->
+<div class="modal fade" id="submitReqModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" *ngIf="submitReq == 0">
+                <h6 class="modal-title" id="exampleModalLabel">{{ action | titlecase }} Student Confirmation</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="submitReq == 0">
+                    <p class="text-center">
+                        Are you sure, you want to {{ action == 'Add' ? 'add new' : 'update' }} student
+                        details?</p>
+                    <span class="text-center text-muted">
+                        <em>This change will reflect in your portal after sometime.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 1">
+                    <br>
+                    <span class="text-center text-muted">
+                        <span><i class="pi pi-spin pi-spinner" style="font-size: 2rem;"></i></span>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 2">
+                    <span class="text-center">
+                        <span><i class="pi pi-check" style="font-size: 2rem;color: seagreen;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Your request is processed successfully.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 3">
+                    <span class="text-center">
+                        <span><i class="pi pi-times" style="font-size: 2rem;color: orangered;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Error while processing the request.</em>
+                    </span>
+                </ng-container>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <ng-container *ngIf="submitReq == 0">
+                    <button type="button" class="btn btn-primary" (click)="saveData()">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 2 || submitReq == 3">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

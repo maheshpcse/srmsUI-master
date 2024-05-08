@@ -1,0 +1,64 @@
+<div class="container-fluid px-0">
+    <app-header></app-header>
+    <div class="container d-flex justify-content-center">
+        <div class="row justify-content-center mt-5">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body pt-0">
+                        <div class="row justify-content-center pb-sm-5 pb-3">
+                            <div class="col-sm-8 col px-sm-0 px-4">
+                                <h4 class="card-title mt-sm-5 mt-3 mb-sm-5 mb-3 text-center">
+                                    <b>Student Login</b>
+                                </h4>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="form-control" name="studentname" id="studentid" placeholder="Student ID">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="password" class="form-control" name="pwdname" id="pwdid" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary btn-block" (click)="studentLogin()"
+                                            [disabled]="spinner">
+                                            <span *ngIf="!spinner"><b>LOGIN</b></span>
+                                            <span class="d-flex justify-content-center" *ngIf="spinner">
+                                                <span><i class="fas fa-spinner fa-spin"></i></span>
+                                                <span class="ml-2">VALIDATING...</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center mt-4">
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" 
+                                                name="my-input-name" id="my-input" value="true">
+                                            <label for="my-input" class="custom-control-label">
+                                                <span>Remember me</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto text-right">
+                                        <span class="pass"><u>Forgot password</u></span>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center align-items-center mt-4">
+                                    <div class="col-auto text-center d-flex">
+                                        <label class="new">New student?</label>
+                                        <span class="pass ml-2" (click)="studentSignup()">
+                                            <u>Signup here</u>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

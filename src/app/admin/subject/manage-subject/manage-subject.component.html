@@ -1,0 +1,739 @@
+<app-admin-header></app-admin-header>
+
+<main>
+    <div class="form-title">
+        <h6>Subject List :</h6>
+    </div>
+    <div class="card form-data">
+        <div class="card-header d-flex justify-content-end align-items-baseline">
+            <div class="form-group input-group ml-2" style="width: 100% !important;">
+                <button class="btn btn-action-back" *ngIf="viewSubjects" (click)="viewSubjects = false;">
+                    <span><i class="pi pi-arrow-left"></i></span>
+                    <span class="ml-2">Back</span>
+                </button>
+                <button class="btn btn-action-addnew ml-2" (click)="addNewSubject()">
+                    <span><i class="pi pi-plus"></i></span>
+                    <span class="ml-2">Add New</span>
+                </button>
+                <button class="btn btn-action-list dropdown ml-2">
+                    <span type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                        <i class="pi pi-list"></i>
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-right p-0 mt-2" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item d-flex align-items-center form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" name="classname" id="classid">
+                                <span class="ml-2">Class Name</span>
+                            </label>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" name="sectionname" id="sectionid">
+                                <span class="ml-2">Section Type</span>
+                            </label>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" name="subjectsname" id="subjectsid">
+                                <span class="ml-2">No.of Subjects</span>
+                            </label>
+                        </a>
+                    </div>
+                </button>
+                <input type="text" class="form-control" name="searchname" id="searchnameid" placeholder="Quick search"
+                    [(ngModel)]="searchQuery" (keyup.enter)="onSearchSubject()" (keypress.enter)="onSearchSubject()">
+                <div class="input-group-append">
+                    <button class="btn btn-action-search">
+                        <span *ngIf="!searchQuery"><i class="pi pi-search"></i></span>
+                        <span *ngIf="searchQuery"><i class="pi pi-check"></i></span>
+                    </button>
+                    <button class="btn btn-action-reset ml-2" [disabled]="!searchQuery" (click)="resetSearchFilters()">
+                        <span><i class="pi pi-times"></i></span>
+                    </button>
+                    <button class="btn btn-action-filters ml-2" (click)="openFilters()">
+                        <span><i class="pi pi-filter"></i></span>
+                        <!-- <span class="ml-2">Filter</span> -->
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 mx-auto" *ngIf="!viewSubjects">
+                        <div class="accordion shadow" id="accordianCollapseExample">
+                            <div class="card" *ngFor="let item of subjectsList; let i=index;">
+                                <div class="card-header bg-white shadow-sm border-0 d-flex justify-content-between align-items-baseline"
+                                id="headingOne">
+                                    <h6 class="mb-0">
+                                        <button class="btn btn-link text-dark font-weight-bold text-uppercase collapsible-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapseOne'+i" aria-expanded="false" aria-controls="collapseOne">
+                                            {{ item?.schoolName }}
+                                        </button>
+                                    </h6>
+                                    <div class="form-group actions justify-content-around align-items-baseline">
+                                        <button class="btn btn-action-view" type="submit" data-toggle="tooltip" data-placement="top" title="View"
+                                            (click)="onSelectSchool(item, 'view')">
+                                            <span><i class="fas fa-binoculars"></i></span>
+                                        </button>
+                                        <button class="btn btn-action-dark ml-2" type="submit" data-toggle="tooltip" data-placement="top" title="No Edit"
+                                            *ngIf="item?.status == 0">
+                                            <span><i class="fas fa-ban"></i></span>
+                                        </button>
+                                        <button class="btn btn-action-edit ml-2" type="submit" data-toggle="tooltip" data-placement="top" title="Edit"
+                                            *ngIf="item?.status == 1" (click)="onSelectSchool(item, 'update')">
+                                            <span><i class="fas fa-edit"></i></span>
+                                        </button>
+                                        <button class="btn btn-action-delete ml-2" type="submit" data-toggle="tooltip" data-placement="top"
+                                            title="Deactivate" *ngIf="item?.status == 1" (click)="onSelectSchool(item, 'deactivate')">
+                                            <span><i class="fas fa-trash-alt"></i></span>
+                                        </button>
+                                        <button class="btn btn-action-restore ml-2" type="submit" data-toggle="tooltip" data-placement="top"
+                                            title="Reactivate" *ngIf="item?.status == 0" (click)="onSelectSchool(item, 'reactivate')">
+                                            <span><i class="fas fa-undo-alt"></i></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- [ngClass]="{'show': i == 0 ? true : false}" -->
+                                <div class="collapse" [id]="'collapseOne'+i" aria-labelledby="headingOne" data-parent="#accordianCollapseExample">
+                                    <div class="card-body p-3 ml-2">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <table class="table table-borderless table-hover table-striped">
+                                                        <thead>
+                                                            <tr scope="col">
+                                                                <th class="text-center">S.No</th>
+                                                                <th>Class Name</th>
+                                                                <th>No.of Sections</th>
+                                                                <th>No.of Students</th>
+                                                                <th>No.of Subjects</th>
+                                                                <th>Status</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr scope="row"
+                                                                *ngFor="let data of item['classes']; let j = index;">
+                                                                <td class="text-center">{{ j + 1 }}</td>
+                                                                <td>{{ data?.className }}</td>
+                                                                <td class="td-section">
+                                                                    <span data-toggle="tooltip" data-placement="top" title="View Sections"
+                                                                        (click)="onSelectClass(item, data, 'sections')">
+                                                                        {{ data?.sectionsCount }}
+                                                                    </span>
+                                                                </td>
+                                                                <td>{{ data?.studentsCount }}</td>
+                                                                <td>{{ data?.subjectsCount }}</td>
+                                                                <td class="td-status">
+                                                                    <span class="d-flex active"
+                                                                        *ngIf="data?.status === 1">
+                                                                        <span><i class="pi pi-check-circle"></i></span>
+                                                                        <span class="ml-2">Active</span>
+                                                                    </span>
+                                                                    <span class="d-flex inactive"
+                                                                        *ngIf="data?.status === 0">
+                                                                        <span><i class="pi pi-times-circle"></i></span>
+                                                                        <span class="ml-2">Inactive</span>
+                                                                    </span>
+                                                                </td>
+                                                                <td class="td-action">
+                                                                    <div class="dropdown">
+                                                                        <span id="dropdownMenuButton"
+                                                                            data-toggle="dropdown"
+                                                                            aria-expanded="false">
+                                                                            <i class="pi pi-ellipsis-h"
+                                                                                style="font-size: 1.5rem;color: #999;"></i>
+                                                                        </span>
+                                                                        <div class="dropdown-menu dropdown-menu-right p-0"
+                                                                            aria-labelledby="dropdownMenuButton">
+                                                                            <a class="dropdown-item d-flex"
+                                                                                (click)="onSelectClass(item, data, 'subjects')">
+                                                                                <span><i class="pi pi-table"></i></span>
+                                                                                <span class="ml-2">Subjects</span>
+                                                                            </a>
+                                                                            <a class="dropdown-item d-flex"
+                                                                                (click)="onSelectClass(item, data, 'view')">
+                                                                                <span><i class="pi pi-eye"></i></span>
+                                                                                <span class="ml-2">View</span>
+                                                                            </a>
+                                                                            <a class="dropdown-item d-flex"
+                                                                                *ngIf="data?.status === 1"
+                                                                                (click)="onSelectClass(item, data, 'update')">
+                                                                                <span><i
+                                                                                        class="pi pi-pencil"></i></span>
+                                                                                <span class="ml-2">Edit</span>
+                                                                            </a>
+                                                                            <a class="dropdown-item d-flex"
+                                                                                *ngIf="data?.status === 1"
+                                                                                (click)="onSelectClass(item, data, 'deactivate')">
+                                                                                <span><i class="pi pi-trash"></i></span>
+                                                                                <span class="ml-2">Deactivate</span>
+                                                                            </a>
+                                                                            <a class="dropdown-item d-flex"
+                                                                                *ngIf="data?.status === 0"
+                                                                                (click)="onSelectClass(item, data, 'reactivate')">
+                                                                                <span><i class="pi pi-undo"></i></span>
+                                                                                <span class="ml-2">Reactivate</span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr scope="row" style="background: white !important;"
+                                                                *ngIf="item['classes']?.length == 0">
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="no-data" style="width: 50px;">
+                                                                        <div class="no-data-img">
+                                                                            <img src="../../../../assets/images/no-data-found.png"
+                                                                                alt="_noDataImg"
+                                                                                class="rounded-circle img-responsive">
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="pagination d-flex justify-content-between">
+                                            <div class="left-side d-flex align-items-center"
+                                                style="width: 30% !important;">
+                                                <span>Showing</span>
+                                                <span class="ml-2">1 - 5</span>
+                                                <span class="ml-2">out of 10 entries</span>
+                                            </div>
+                                            <div class="right-side">
+                                                <ul
+                                                    class="list-group list-group-flush pagination-list d-flex align-items-center">
+                                                    <li class="list-group-item"><<</li>
+                                                    <li class="list-group-item ml-2">Prev</li>
+                                                    <li class="list-group-item active ml-2">1</li>
+                                                    <li class="list-group-item ml-2">2</li>
+                                                    <li class="list-group-item ml-2">3</li>
+                                                    <li class="list-group-item ml-2">4</li>
+                                                    <li class="list-group-item ml-2">5</li>
+                                                    <li class="list-group-item ml-2">Next</li>
+                                                    <li class="list-group-item ml-2">>></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 subjects-table" *ngIf="viewSubjects">
+                        <div class="d-flex justify-content-start align-items-baseline row">
+                            <p class="d-flex align-items-baseline p1 col-6">
+                                <span class="title">School Name :</span>
+                                <span class="data ml-2">Test School 0</span>
+                            </p>
+                            <p class="d-flex align-items-baseline p2 col-6">
+                                <span class="title">Class Name :</span>
+                                <span class="data ml-2">Class I</span>
+                            </p>
+                        </div>
+                        <table class="table table-borderless table-hover table-striped">
+                            <thead>
+                                <tr scope="col">
+                                    <th class="text-center">S.No</th>
+                                    <th>Subject Name</th>
+                                    <th>Subject Type</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr scope="row" *ngFor="let item of editClassItem['subjects']; let i = index;">
+                                    <td class="text-center">{{ i + 1 }}</td>
+                                    <td>{{ item?.subjectName }}</td>
+                                    <td>{{ item?.subjectType }}</td>
+                                    <td class="td-status">
+                                        <span class="d-flex active" *ngIf="item?.status === 1">
+                                            <span><i class="pi pi-check-circle"></i></span>
+                                            <span class="ml-2">Active</span>
+                                        </span>
+                                        <span class="d-flex inactive" *ngIf="item?.status === 0">
+                                            <span><i class="pi pi-times-circle"></i></span>
+                                            <span class="ml-2">Inactive</span>
+                                        </span>
+                                    </td>
+                                    <td class="td-action">
+                                        <div class="dropdown">
+                                            <span id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                                                <i class="pi pi-ellipsis-h" style="font-size: 1.5rem;color: #999;"></i>
+                                            </span>
+                                            <div class="dropdown-menu dropdown-menu-right p-0"
+                                                aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item d-flex" (click)="onSelectSubject(editSchoolItem, editClassItem, item, 'view')">
+                                                    <span><i class="pi pi-eye"></i></span>
+                                                    <span class="ml-2">View</span>
+                                                </a>
+                                                <a class="dropdown-item d-flex" *ngIf="item?.status === 1"
+                                                    (click)="onSelectSubject(editSchoolItem, editClassItem, item, 'update')">
+                                                    <span><i class="pi pi-pencil"></i></span>
+                                                    <span class="ml-2">Edit</span>
+                                                </a>
+                                                <a class="dropdown-item d-flex" *ngIf="item?.status === 1"
+                                                    (click)="onSelectSubject(editSchoolItem, editClassItem, item, 'deactivate')">
+                                                    <span><i class="pi pi-trash"></i></span>
+                                                    <span class="ml-2">Deactivate</span>
+                                                </a>
+                                                <a class="dropdown-item d-flex" *ngIf="item?.status === 0"
+                                                    (click)="onSelectSubject(editSchoolItem, editClassItem, item, 'reactivate')">
+                                                    <span><i class="pi pi-undo"></i></span>
+                                                    <span class="ml-2">Reactivate</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr scope="row" style="background: white !important;" *ngIf="editClassItem['subjects']?.length == 0">
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="no-data" style="width: 50px;">
+                                            <div class="no-data-img">
+                                                <img src="../../../../assets/images/no-data-found.png" alt="_noDataImg"
+                                                    class="rounded-circle img-responsive">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="pagination d-flex justify-content-between">
+                            <div class="left-side d-flex align-items-center"
+                                style="width: 30% !important;">
+                                <span>Showing</span>
+                                <span class="ml-2">1 - 5</span>
+                                <span class="ml-2">out of 10 entries</span>
+                            </div>
+                            <div class="right-side">
+                                <ul
+                                    class="list-group list-group-flush pagination-list d-flex align-items-center">
+                                    <li class="list-group-item"><<</li>
+                                    <li class="list-group-item ml-2">Prev</li>
+                                    <li class="list-group-item active ml-2">1</li>
+                                    <li class="list-group-item ml-2">2</li>
+                                    <li class="list-group-item ml-2">3</li>
+                                    <li class="list-group-item ml-2">4</li>
+                                    <li class="list-group-item ml-2">5</li>
+                                    <li class="list-group-item ml-2">Next</li>
+                                    <li class="list-group-item ml-2">>></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer" *ngIf="!viewSubjects">
+            <div class="pagination d-flex justify-content-between">
+                <div class="left-side d-flex align-items-center" style="width: 30% !important;">
+                    <span>Showing</span>
+                    <select class="form-control ml-2" name="pagename" id="pageid" style="width: 25% !important;">
+                        <option selected>5</option>
+                        <option>10</option>
+                        <option>15</option>
+                        <option>20</option>
+                    </select>
+                    <span class="ml-2">Rows Out Of 10</span>
+                </div>
+                <div class="right-side">
+                    <ul class="list-group list-group-flush pagination-list d-flex align-items-center">
+                        <li class="list-group-item"><<</li>
+                        <li class="list-group-item ml-2">Prev</li>
+                        <li class="list-group-item active ml-2">1</li>
+                        <li class="list-group-item ml-2">2</li>
+                        <li class="list-group-item ml-2">3</li>
+                        <li class="list-group-item ml-2">4</li>
+                        <li class="list-group-item ml-2">5</li>
+                        <li class="list-group-item ml-2">Next</li>
+                        <li class="list-group-item ml-2">>></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-admin-sidemenu></app-admin-sidemenu>
+</main>
+
+<app-admin-footer></app-admin-footer>
+
+<!-- View Class Sections List -->
+<div class="modal fade" id="viewSectionsModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">
+                    <b>{{ editClassItem['className'] }}</b> <span class="ml-2">Sections List :</span>
+                </h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-borderless table-hover table-striped">
+                    <thead>
+                        <tr scope="col">
+                            <th class="text-center">S.No</th>
+                            <th>Section Name</th>
+                            <th>No.of Students</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr scope="row" *ngFor="let item of editClassItem['sections']; let i = index;">
+                            <td class="text-center">{{ i + 1 }}</td>
+                            <td>{{ item?.sectionName }}</td>
+                            <td>{{ item?.studentsCount }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View School Details -->
+<div id="mySidenav_school_view" class="sidenav_school_view">
+    <div class="d-flex justify-content-between align-items-center">
+        <a class="closebtn" (click)="closeSchoolViewDetails()">&times;</a>
+        <h5 class="ml-5">View School Details</h5>
+    </div>
+    <hr class="line">
+    <div class="container-fluid">
+        <div class="row label-details">
+            <div class="col-md-12 titles">
+                <h6>Primary Details :</h6>
+            </div>
+            <div class="col-md-6 labels mt-2">
+                <div class="d-flex align-items-baseline">
+                    <span class="icon col-1"><i class="fas fa-school"></i></span>
+                    <div class="data col-11">
+                        <h6>School Name</h6>
+                        <p>Test School</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 labels mt-2">
+                <div class="d-flex align-items-baseline">
+                    <span class="icon col-1"><i class="fas fa-info-circle"></i></span>
+                    <div class="data col-11">
+                        <h6>Status</h6>
+                        <p>Opened / Running</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View Class Details -->
+<div id="mySidenav_class_view" class="sidenav_class_view">
+    <div class="d-flex justify-content-between align-items-center">
+        <a class="closebtn" (click)="closeClassViewDetails()">&times;</a>
+        <h5 class="ml-5">View Class Details</h5>
+    </div>
+    <hr class="line">
+    <div class="container-fluid">
+        <div class="row label-details">
+            <div class="col-md-12 titles">
+                <h6>Primary Details :</h6>
+            </div>
+            <div class="col-md-12 labels mt-2">
+                <div class="d-flex align-items-baseline">
+                    <span class="icon col-1"><i class="fas fa-school"></i></span>
+                    <div class="data col-11">
+                        <h6>Class Name</h6>
+                        <p>Class I</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 labels mt-2">
+                <div class="d-flex align-items-baseline">
+                    <span class="icon col-1"><i class="fas fa-folder"></i></span>
+                    <div class="data col-11">
+                        <h6>Section Type</h6>
+                        <p>Section A</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 labels mt-2">
+                <div class="d-flex align-items-baseline">
+                    <span class="icon col-1"><i class="fas fa-book"></i></span>
+                    <div class="data col-11">
+                        <h6>No.of Subjects</h6>
+                        <p>10</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 labels mt-2">
+                <div class="d-flex align-items-baseline">
+                    <span class="icon col-1"><i class="fas fa-info-circle"></i></span>
+                    <div class="data col-11">
+                        <h6>Status</h6>
+                        <p>Active</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View Subject Details -->
+<div id="mySidenav_subject_view" class="sidenav_subject_view">
+    <div class="d-flex justify-content-between align-items-center">
+        <a class="closebtn" (click)="closeSubjectViewDetails()">&times;</a>
+        <h5 class="ml-5">View Subject Details</h5>
+    </div>
+    <hr class="line">
+    <div class="container-fluid">
+        <div class="row label-details">
+            <div class="col-md-12 titles">
+                <h6>Primary Details :</h6>
+            </div>
+            <div class="col-md-12 labels mt-2">
+                <div class="d-flex align-items-baseline">
+                    <span class="icon col-1"><i class="fas fa-book"></i></span>
+                    <div class="data col-11">
+                        <h6>Subject Name</h6>
+                        <p>Test subject</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 labels mt-2">
+                <div class="d-flex align-items-baseline">
+                    <span class="icon col-1"><i class="fas fa-folder"></i></span>
+                    <div class="data col-11">
+                        <h6>Subject Type</h6>
+                        <p>Language</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 labels mt-2">
+                <div class="d-flex align-items-baseline">
+                    <span class="icon col-1"><i class="fas fa-info-circle"></i></span>
+                    <div class="data col-11">
+                        <h6>Status</h6>
+                        <p>Active</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Filters -->
+<div id="mySidenav" class="sidenav">
+    <div class="d-flex justify-content-between align-items-center">
+        <h5>Filters</h5>
+        <a class="closebtn" (click)="closeFilters()">&times;</a>
+    </div>
+    <hr style="margin-top: 1.25rem !important;">
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select class="form-control" name="statusName" id="statusId" [(ngModel)]="statusFilter">
+                        <option value="all" selected disabled>All Status</option>
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="form-group input-group d-flex justify-content-center align-items-baseline">
+                    <button class="btn btn-action-reset col-4" type="reset" (click)="resetFilter()">Reset</button>
+                    <button class="btn btn-action-apply col-4 ml-2" type="submit" (click)="applyFilter()">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update school status modal -->
+<div class="modal fade" id="updateSchoolReqModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" *ngIf="updateSchoolReq == 0">
+                <h6 class="modal-title" id="exampleModalLabel">{{ action | titlecase }} School Confirmation</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="updateSchoolReq == 0">
+                    <p class="text-center">Are you sure, you want to {{ action | lowercase }} school details?</p>
+                    <span class="text-center text-muted">
+                        <em>This change will reflect in your portal after sometime.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="updateSchoolReq == 1">
+                    <br>
+                    <span class="text-center text-muted">
+                        <span><i class="pi pi-spin pi-spinner" style="font-size: 2rem;"></i></span>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="updateSchoolReq == 2">
+                    <span class="text-center">
+                        <span><i class="pi pi-check" style="font-size: 2rem;color: seagreen;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Your request is processed successfully.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="updateSchoolReq == 3">
+                    <span class="text-center">
+                        <span><i class="pi pi-times" style="font-size: 2rem;color: orangered;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Error while processing the request.</em>
+                    </span>
+                </ng-container>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <ng-container *ngIf="updateSchoolReq == 0">
+                    <button type="button" class="btn btn-primary" (click)="updateSchoolData()">
+                        {{ action | uppercase }}
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </ng-container>
+                <ng-container *ngIf="updateSchoolReq == 2 || updateSchoolReq == 3">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update class status modal -->
+<div class="modal fade" id="updateClassReqModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" *ngIf="updateClassReq == 0">
+                <h6 class="modal-title" id="exampleModalLabel">{{ action | titlecase }} Class Confirmation</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="updateClassReq == 0">
+                    <p class="text-center">Are you sure, you want to {{ action | lowercase }} class details?</p>
+                    <span class="text-center text-muted">
+                        <em>This change will reflect in your portal after sometime.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="updateClassReq == 1">
+                    <br>
+                    <span class="text-center text-muted">
+                        <span><i class="pi pi-spin pi-spinner" style="font-size: 2rem;"></i></span>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="updateClassReq == 2">
+                    <span class="text-center">
+                        <span><i class="pi pi-check" style="font-size: 2rem;color: seagreen;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Your request is processed successfully.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="updateClassReq == 3">
+                    <span class="text-center">
+                        <span><i class="pi pi-times" style="font-size: 2rem;color: orangered;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Error while processing the request.</em>
+                    </span>
+                </ng-container>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <ng-container *ngIf="updateClassReq == 0">
+                    <button type="button" class="btn btn-primary" (click)="updateClassData()">
+                        {{ action | uppercase }}
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </ng-container>
+                <ng-container *ngIf="updateClassReq == 2 || updateClassReq == 3">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update subject status modal -->
+<div class="modal fade" id="updateSubjectReqModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" *ngIf="updateSubjectReq == 0">
+                <h6 class="modal-title" id="exampleModalLabel">{{ action | titlecase }} Subject Confirmation</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="updateSubjectReq == 0">
+                    <p class="text-center">Are you sure, you want to {{ action | lowercase }} subject details?</p>
+                    <span class="text-center text-muted">
+                        <em>This change will reflect in your portal after sometime.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="updateSubjectReq == 1">
+                    <br>
+                    <span class="text-center text-muted">
+                        <span><i class="pi pi-spin pi-spinner" style="font-size: 2rem;"></i></span>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="updateSubjectReq == 2">
+                    <span class="text-center">
+                        <span><i class="pi pi-check" style="font-size: 2rem;color: seagreen;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Your request is processed successfully.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="updateSubjectReq == 3">
+                    <span class="text-center">
+                        <span><i class="pi pi-times" style="font-size: 2rem;color: orangered;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Error while processing the request.</em>
+                    </span>
+                </ng-container>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <ng-container *ngIf="updateSubjectReq == 0">
+                    <button type="button" class="btn btn-primary" (click)="updateSubjectData()">
+                        {{ action | uppercase }}
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </ng-container>
+                <ng-container *ngIf="updateSubjectReq == 2 || updateSubjectReq == 3">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

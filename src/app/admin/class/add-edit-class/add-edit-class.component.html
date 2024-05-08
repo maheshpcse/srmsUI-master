@@ -1,0 +1,199 @@
+<app-admin-header></app-admin-header>
+
+<main>
+    <div class="form-title">
+        <h6>Add Edit Class Details :</h6>
+    </div>
+    <div class="card form-data">
+        <div class="card-body">
+            <form #classForm="ngForm">
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="food" class="field-required">Food</label>
+                                <br>
+                                <mat-form-field appearance="fill" mat-raised-button matTooltip="{{foodName}}"
+                                    matTooltipPosition="above">
+                                    <mat-select name="foodname" id="foodid" [(ngModel)]="foodName">
+                                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                                            {{food.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div> -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="schoolname" class="field-required">School</label>
+                                <select class="form-control" name="schoolname" id="schoolid"
+                                    [(ngModel)]="selectSchoolId" required>
+                                    <option value="null" selected disabled>Select School :</option>
+                                    <option [value]="item.school_id" *ngFor="let item of schoolsList;">
+                                        {{ item?.schoolName }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="classname" class="field-required">Class</label>
+                                <!-- <select class="form-control" name="classname" id="classnameid" [(ngModel)]="className">
+                                    <option value="null" selected disabled>Select Class :</option>
+                                    <option [value]="item.value" *ngFor="let item of classNamesList;">
+                                        {{ item?.name }}
+                                    </option>
+                                </select> -->
+                                <angular2-multiselect [data]="classNamesList" name="classname"
+                                    [(ngModel)]="selectedClassItems" [settings]="classListSettings"
+                                    (onSelect)="onClassItemSelect($event)" (onDeSelect)="OnClassItemDeSelect($event)"
+                                    (onSelectAll)="onClassSelectAll($event)" (onDeSelectAll)="onClassDeSelectAll($event)"
+                                    required>
+                                </angular2-multiselect>
+                            </div>
+                        </div>
+                        <div class="col-md-4" *ngIf="className === 'other'">
+                            <div class="form-group">
+                                <label for="othername" class="field-required">Other Class</label>
+                                <input type="text" class="form-control" name="othername" id="othernameid"
+                                    placeholder="Enter Class Name" required>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="sectionname" class="field-required">Class Section Type</label>
+                                <select class="form-control" name="sectionname" id="sectionnameid"
+                                    [(ngModel)]="sectionName" required>
+                                    <option value="null" selected disabled>Select Section :</option>
+                                    <option [value]="item.value" *ngFor="let item of sectionTypesList;">
+                                        {{ item?.name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!-- *ngIf="selectedClassItems?.length > 0" -->
+                    <form [formGroup]="sectionGroup" *ngIf="selectedClassItems?.length > 0">
+                        <div formArrayName="sections">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="classname" class="field-required">Class Name</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="sectionname" class="field-required">Section Types</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="subjectcount" class="field-required">Total Subjects</label>
+                                </div>
+                            </div>
+                            <div class="row d-flex align-items-baseline"
+                                *ngFor="let items of sectionGroup['controls']['sections']['controls']; let j=index;"
+                                [formGroupName]="j">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" name="classname-{{j}}" id="classid-{{j}}"
+                                            formControlName="className" readonly required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <!-- <select class="form-control" name="sectionname" id="sectionnameid"
+                                            formControlName="sectionName">
+                                            <option value="null" selected disabled>Select Section :</option>
+                                            <option [value]="data.value" *ngFor="let data of sectionTypesList;">
+                                                {{ data?.name }}
+                                            </option>
+                                        </select> -->
+                                        <angular2-multiselect [data]="sectionTypesList" name="sectionname" formControlName="sectionName"
+                                            [settings]="sectionListSettings"
+                                            (onSelect)="onSectionItemSelect($event)" (onDeSelect)="onSectionItemDeSelect($event)"
+                                            (onSelectAll)="onSectionItemSelectAll($event)" (onDeSelectAll)="onSectionItemDeSelectAll($event)"
+                                            required>
+                                        </angular2-multiselect>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" name="countname" id="countid"
+                                            placeholder="Enter No.of Subjects" formControlName="totalSubjects" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <div class="form-group input-group">
+                                <button class="btn btn-action-submit col-4" data-toggle="modal"
+                                    data-target="#submitReqModal" (click)="submitReq = 0;">
+                                    Submit
+                                </button>
+                                <button class="btn btn-action-reset col-4 ml-3">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <app-admin-sidemenu></app-admin-sidemenu>
+</main>
+
+<app-admin-footer></app-admin-footer>
+
+<!-- Submit request modal -->
+<div class="modal fade" id="submitReqModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" *ngIf="submitReq == 0">
+                <h6 class="modal-title" id="exampleModalLabel">{{ action | titlecase }} Class Confirmation</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="submitReq == 0">
+                    <p class="text-center">Are you sure, you want to {{ action == 'Add' ? 'add new' : 'update' }} class
+                        details?</p>
+                    <span class="text-center text-muted">
+                        <em>This change will reflect in your portal after sometime.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 1">
+                    <br>
+                    <span class="text-center text-muted">
+                        <span><i class="pi pi-spin pi-spinner" style="font-size: 2rem;"></i></span>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 2">
+                    <span class="text-center">
+                        <span><i class="pi pi-check" style="font-size: 2rem;color: seagreen;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Your request is processed successfully.</em>
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 3">
+                    <span class="text-center">
+                        <span><i class="pi pi-times" style="font-size: 2rem;color: orangered;"></i></span>
+                    </span>
+                    <br>
+                    <span class="text-center text-muted" style="font-size: 1rem;">
+                        <em>Error while processing the request.</em>
+                    </span>
+                </ng-container>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <ng-container *ngIf="submitReq == 0">
+                    <button type="button" class="btn btn-primary" (click)="saveData()">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </ng-container>
+                <ng-container *ngIf="submitReq == 2 || submitReq == 3">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

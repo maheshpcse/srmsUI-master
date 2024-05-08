@@ -1,0 +1,480 @@
+.form-title h6 {
+    color: chocolate;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: 5px 0px 10px 10px;
+    border-left: 5px solid chocolate;
+}
+
+.card {
+    background-color: white;
+}
+
+.card .card-body {
+    padding: 5px;
+    /* overflow-y: scroll;
+    height: 70vh; */
+}
+
+.card .card-body label,
+p,
+span {
+    font-size: 0.9em;
+}
+
+.card .card-body em {
+    font-size: 0.8em;
+}
+
+.card .card-body label {
+    color: #333;
+    font-weight: bold;
+}
+
+.card .card-body input,
+select {
+    height: 40px;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body textarea {
+    padding: 10px;
+    font-size: 0.9em;
+    color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body .field-required span {
+    color: #999;
+    font-size: 0.9em;
+}
+
+.card .card-body .form-titles {
+    display: flex;
+    align-items: center;
+}
+
+.card .card-body .form-titles .num {
+    color: white;
+    background-color: cornflowerblue;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+}
+
+.card .card-body .form-titles .title {
+    color: coral;
+}
+
+.card .card-body .btn-action-previous {
+    cursor: pointer;
+    color: white;
+    background-color: #dee2ec;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body .btn-action-previous:hover {
+    background-color: #ccc;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body .btn-action-reset {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body .btn-action-reset:hover {
+    background-color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body .btn-action-submit {
+    cursor: pointer;
+    color: white;
+    background-color: mediumseagreen;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body .btn-action-submit:hover {
+    background-color: seagreen;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-body .btn-action-draft {
+    cursor: pointer;
+    color: white;
+    background-color: cornflowerblue;
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body .btn-action-draft:hover {
+    background-color: dodgerblue;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+/* table card css styles */
+.form-title h6 {
+    color: chocolate;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: 5px 0px 10px 10px;
+    border-left: 5px solid chocolate;
+}
+
+.card {
+    background-color: white;
+}
+
+.card .card-header {
+    height: 60px;
+    padding: 10px !important;
+}
+
+.card .card-header input[type="text"],
+select {
+    height: 40px;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-list {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc;
+    /* height: 40px;
+    padding: 10px; */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.card .card-header .btn-action-list:hover {
+    background-color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-search {
+    cursor: pointer;
+    color: white;
+    background-color: cornflowerblue;
+    /* height: 40px;
+    padding: 10px; */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.card .card-header .btn-action-search:hover {
+    background-color: dodgerblue;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-reset {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc;
+    /* height: 40px;
+    padding: 10px; */
+}
+
+.card .card-header .btn-action-reset:hover {
+    background-color: firebrick;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-addnew {
+    cursor: pointer;
+    color: white;
+    background-color: lightcoral;
+    /* height: 40px;
+    padding: 10px; */
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-header .btn-action-addnew:hover {
+    background-color: coral;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .btn-action-filters {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc;
+    /* height: 40px;
+    padding: 10px; */
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.card .card-header .btn-action-filters:hover {
+    background-color: #999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.card .card-header .form-group .dropdown-menu {
+    margin-left: 45px !important;
+}
+
+.card .card-body {
+    padding: 5px;
+}
+
+.card .card-body .right-data h6 {
+    color: #818181;
+    font-weight: bold;
+}
+
+.card .card-body label,
+p,
+span {
+    font-size: 0.9em;
+}
+
+.card .card-body em {
+    font-size: 0.8em;
+}
+
+.card .card-body label {
+    color: #333;
+    font-weight: bold;
+}
+
+.card .card-body table thead tr th {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card .card-body table thead tr .th-or em {
+    color: #999;
+    font-size: 0.8em;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body table thead tr .th-marks em {
+    color: #999;
+    font-size: 0.8em;
+    letter-spacing: 1.2px;
+}
+
+.card .card-body table tbody tr td {
+    color: #999;
+    font-size: 0.9em;
+    vertical-align: middle !important;
+}
+
+.card .card-body table tbody tr .td-status .active {
+    color: seagreen;
+}
+
+.card .card-body table tbody tr .td-status .inactive {
+    color: tomato;
+}
+
+.card .card-body table tbody tr .td-action {
+    cursor: pointer;
+}
+
+.card .card-body table tbody tr td .dropdown-menu {
+    margin-left: 50px;
+}
+
+.card .card-body table tbody tr td .dropdown-menu .dropdown-item {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.card .card-footer .pagination .right-side .list-group {
+    flex-direction: row !important;
+}
+
+.card .card-footer .pagination .right-side .list-group .list-group-item {
+    border: none;
+    cursor: pointer;
+}
+
+.card .card-footer .pagination .right-side .list-group .list-group-item.active {
+    color: white;
+    background-color: coral;
+    margin-top: 0px;
+}
+
+.card .card-footer .pagination .right-side .list-group .list-group-item:hover {
+    color: white;
+    background-color: lightcoral;
+}
+
+/* css filters styles */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9;
+    top: 70px;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
+}
+
+.sidenav a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav h5 {
+    color: #ccc;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.sidenav .closebtn {
+    cursor: pointer;
+    position: absolute;
+    top: -15px;
+    right: 0;
+    font-size: 36px;
+    margin-top: 15px;
+}
+
+.sidenav .btn-action-reset {
+    cursor: pointer;
+    color: #333;
+    background-color: #f1f1f1;
+    padding: 5px;
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+}
+
+.sidenav .btn-action-reset:hover {
+    background-color: #ccc;
+}
+
+.sidenav .btn-action-apply {
+    cursor: pointer;
+    color: white;
+    background-color: cornflowerblue;
+    padding: 5px;
+    border: 1px solid cornflowerblue;
+    border-radius: 5px;
+}
+
+.sidenav .btn-action-apply:hover {
+    background-color: dodgerblue;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+
+/* add/update modal css styles */
+.modal .modal-dialog .modal-content {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.modal .modal-header {
+    color: white;
+    background-color: mediumseagreen;
+}
+
+.modal .modal-header .close:hover {
+    cursor: pointer;
+    color: white !important;
+}
+
+.modal .modal-body {
+    padding: 1.5rem !important;
+}
+
+.modal .modal-body p {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.modal .modal-body span {
+    color: #999;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+}
+
+.modal .modal-footer {
+    border-top: none;
+}
+
+.modal .modal-footer .btn {
+    /* height: 40px;
+    padding: 10px; */
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border: none !important;
+}
+
+.modal .modal-footer .btn-primary {
+    cursor: pointer;
+    color: white;
+    background-color: mediumseagreen !important;
+}
+
+.modal .modal-footer .btn-primary:hover {
+    background-color: seagreen !important;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+.modal .modal-footer .btn-secondary {
+    cursor: pointer;
+    color: white;
+    background-color: #ccc !important;
+}
+
+.modal .modal-footer .btn-secondary:hover {
+    background-color: #999 !important;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}

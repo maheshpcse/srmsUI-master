@@ -1,0 +1,248 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white p-0">
+    <a class="navbar-brand mr-4 ml-2" [routerLink]="['/home']"><strong>S R M S</strong></a>
+    <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav navbar-right" *ngIf="isLoggedIn()">
+            <li class="nav-item" [routerLink]="['/home']">
+                <a class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Services<span class="fa fa-angle-down"></span></a>
+                <div class="dropdown-menu list-menu" id="dropdown-menu1" aria-labelledby="navbarDropdown1">
+                    <div class="container" style="display: grid;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-school"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item">
+                                            <h6 class="mb-0">Classes</h6>
+                                            <small class="text-muted">View class details</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-book"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item">
+                                            <h6 class="mb-0">Subjects</h6>
+                                            <small class="text-muted">View subject details</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-list"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item">
+                                            <h6 class="mb-0">Results</h6>
+                                            <small class="text-muted">Get exam results</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-newspaper"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item">
+                                            <h6 class="mb-0">Notices</h6>
+                                            <small class="text-muted">View latest updates</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Public<span class="fa fa-angle-down"></span></a>
+                <div class="dropdown-menu list-menu" id="dropdown-menu2" aria-labelledby="navbarDropdown2">
+                    <div class="container" style="display: grid;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-folder"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item">
+                                            <h6 class="mb-0">About</h6>
+                                            <small class="text-muted">What is SRMS App?</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-question"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item">
+                                            <h6 class="mb-0">Contact</h6>
+                                            <small class="text-muted">Let's touch with us</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right user-nav">
+            <li class="nav-item" *ngIf="!isLoggedIn()">
+                <a class="nav-link" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Access<span class="fa fa-angle-down"></span></a>
+                <div class="dropdown-menu list-menu" id="dropdown-menu3" aria-labelledby="navbarDropdown3">
+                    <div class="container" style="display: grid;">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-sign-in-alt"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item" [routerLink]="['/student/login']">
+                                            <h6 class="mb-0">Student Login</h6>
+                                            <small class="text-muted">Login as student</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-sign-out-alt"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item" [routerLink]="['/student/signup']">
+                                            <h6 class="mb-0">Student Signup</h6>
+                                            <small class="text-muted">Register as student</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-user-secret"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item" [routerLink]="['/admin/login']">
+                                            <h6 class="mb-0">Admin Login</h6>
+                                            <small class="text-muted">Login as admin</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-user-tie"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item" [routerLink]="['/employee/login']">
+                                            <h6 class="mb-0">Employee Login</h6>
+                                            <small class="text-muted">Login as employee</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item profile dropdown" *ngIf="isLoggedIn()">
+                <span class="nav-link img d-flex align-items-center p-0" id="navbarDropdown4" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="../../assets/images/avatars/user-avatar.png" alt="_userImg"
+                        class="img-responsive rouded-circle" width="30" height="30">
+                    <strong class="data ml-2">PM</strong>
+                </span>
+                <div class="dropdown-menu list-menu" id="dropdown-menu4" aria-labelledby="navbarDropdown4">
+                    <div class="container" style="display: grid;">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-user-alt"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item">
+                                            <h6 class="mb-0">My Profile</h6>
+                                            <small class="text-muted">View self account</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-cog"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item">
+                                            <h6 class="mb-0">Settings</h6>
+                                            <small class="text-muted">Change profile details</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-bell"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item">
+                                            <h6 class="mb-0">Notifications</h6>
+                                            <small class="text-muted">View latest notices</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row d-flex tab">
+                                    <div class="fa-icon text-center">
+                                        <span class="fa fa-sign-out-alt"></span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a class="dropdown-item" (click)="isLoggedOut()">
+                                            <h6 class="mb-0">LOG OUT</h6>
+                                            <small class="text-muted">To session end</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
