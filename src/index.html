@@ -55,12 +55,15 @@
         }
 
         jQuery(function ($) {
-            var topBarId = document.getElementById('mainNav');
+            var topBarId = document.getElementById('headerNav');
+            var bottomBarId = document.getElementById('footerNav');
             var mainTag = document.getElementsByTagName('main');
             $("#close-sidebar").click(function () {
                 $(".page-wrapper").removeClass("toggled");
                 topBarId.style.marginLeft = '0%';
                 topBarId.style.transition = 'margin-left 0.5s';
+                bottomBarId.style.marginLeft = '0%';
+                bottomBarId.style.transition = 'margin-left 0.5s';
                 for (let i = 0; i < mainTag.length; i += 1) {
                     mainTag[i].style.marginLeft = '0%';
                     mainTag[i].style.transition = 'margin-left 0.5s';
@@ -69,9 +72,13 @@
             });
             $("#show-sidebar").click(function () {
                 $(".page-wrapper").addClass("toggled");
-                topBarId.style.marginLeft = '20%';
+                // topBarId.style.marginLeft = '20%';
+                topBarId.style.marginLeft = 'calc(275px - 0px)';
+                // bottomBarId.style.marginLeft = '20%';
+                bottomBarId.style.marginLeft = 'calc(275px - 0px)';
                 for (let i = 0; i < mainTag.length; i += 1) {
-                    mainTag[i].style.marginLeft = '20%';
+                    // mainTag[i].style.marginLeft = '20%';
+                    mainTag[i].style.marginLeft = 'calc(275px - 0px)';
                 }
                 getValue(false);
             });

@@ -1,0 +1,8 @@
+/* .credit {
+    width: 100% !important;
+} */
+
+#footerNav {
+    /* margin-left: 20%; */
+    margin-left: calc(275px - 0px);
+}

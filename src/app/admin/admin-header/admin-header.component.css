@@ -5,8 +5,9 @@
     /* margin-left: 20%; */
 }
 
-#mainNav {
-    margin-left: 20%;
+#headerNav {
+    /* margin-left: 20%; */
+    margin-left: calc(275px - 0px);
 }
 
 .navbar-search .btn-primary {
