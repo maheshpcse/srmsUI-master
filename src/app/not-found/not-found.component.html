@@ -14,7 +14,7 @@
 </div> -->
 
 <!-- style two -->
-<!-- <div id="notfound">
+<div id="notfound">
     <div class="notfound">
         <div class="notfound-404">
             <h1>404</h1>
@@ -25,7 +25,7 @@
         </p>
         <div class="form-group input-group justify-content-center mt-2">
             <input type="text" name="searchname" id="searchid" placeholder="Search Page URL" [(ngModel)]="searchQuery"
-                (keypress.enter)="searchPage()" (keyup.enter)="searchPage()">
+                (keypress.enter)="searchPage()" (keyup.enter)="searchPage()" (input)="checkQuery()">
             <div class="input-group-append">
                 <button class="btn btn-action-search" type="submit" [disabled]="!searchQuery" (click)="searchPage()">
                     <span *ngIf="!searchQuery"><i class="pi pi-search"></i></span>
@@ -33,12 +33,17 @@
                 </button>
             </div>
         </div>
-        <a class="mt-2" (click)="backToHome()">Back To Home page</a>
+        <div class="error-note" *ngIf="isValidURL == false">
+            <span>Invalid URL, Please enter valid URL.</span>
+        </div>
+        <a [ngClass]="{'mt-3': isValidURL == false, 'mt-2': !isValidURL }" (click)="backToHomeOrLogin()">
+            Back To {{ !role ? 'Login' : 'Home'}} page
+        </a>
     </div>
-</div> -->
+</div>
 
-
-<div class="accordion" id="accordionExample">
+<!-- Test Collapse code -->
+<!-- <div class="accordion" id="accordionExample">
     <div class="card" *ngFor="let item of [0,1,2,3,4]; let id=index;">
         <div class="card-header" data-toggle="collapse" [attr.data-target]="'#collapseOne'+id" aria-expanded="false">     
             <span class="title">Collapsible Group Item #{{item}} </span>
@@ -50,4 +55,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

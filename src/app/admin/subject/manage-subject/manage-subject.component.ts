@@ -225,7 +225,7 @@ export class ManageSubjectComponent implements OnInit {
     openFilters() {
         this.showFilter = !this.showFilter;
         if (this.showFilter) {
-            document.getElementById("mySidenav").style.width = "255px";
+            document.getElementById("mySidenav").style.width = "275px";
         } else {
             document.getElementById("mySidenav").style.width = "0";
         }

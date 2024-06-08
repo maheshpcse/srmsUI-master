@@ -292,6 +292,17 @@ body {
     background-color: #0c77ba;
 }
 
+.notfound .btn-action-search .pi-search {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.notfound .error-note span {
+    color: crimson;
+    font-size: 0.9em;
+}
+
 @media only screen and (max-width: 480px) {
     .notfound .notfound-404 h1 {
         font-size: 162px;
