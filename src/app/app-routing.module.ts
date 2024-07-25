@@ -64,130 +64,130 @@ const routes: Routes = [
     // **************** Admin routes *************************
     {
         path: 'admin/home',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: AdminHomeComponent
     },
 
     // School routes
     {
         path: 'admin/school/add-edit-school',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: AddEditSchoolComponent
     },
     {
         path: 'admin/school/bulk-upload-school',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: BulkUploadSchoolComponent
     },
     {
         path: 'admin/school/manage-school',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: ManageSchoolComponent
     },
 
     // Class routes
     {
         path: 'admin/class/add-edit-class',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: AddEditClassComponent
     },
     {
         path: 'admin/class/bulk-upload-class',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: BulkUploadClassComponent
     },
     {
         path: 'admin/class/manage-class',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: ManageClassComponent
     },
 
     // Subject routes
     {
         path: 'admin/subject/add-edit-subject',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: AddEditSubjectComponent
     },
     {
         path: 'admin/subject/bulk-upload-subject',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: BulkUploadSubjectComponent
     },
     {
         path: 'admin/subject/manage-subject',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: ManageSubjectComponent
     },
 
     // Student routes
     {
         path: 'admin/student/add-edit-student',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: AddEditStudentComponent
     },
     {
         path: 'admin/student/bulk-upload-student',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: BulkUploadStudentComponent
     },
     {
         path: 'admin/student/manage-student',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: ManageStudentComponent
     },
 
     // Student Result routes
     {
         path: 'admin/student-result/add-edit-student-result',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: AddEditStudentResultComponent
     },
     {
         path: 'admin/student-result/bulk-upload-student-result',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: BulkUploadStudentResultComponent
     },
     {
         path: 'admin/student-result/manage-student-result',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: ManageStudentResultComponent
     },
 
     // Notice routes
     {
         path: 'admin/notice/add-edit-notice',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: AddEditNoticeComponent
     },
     {
         path: 'admin/notice/manage-notice',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: ManageNoticeComponent
     },
 
     // Admin Profile routes
     {
         path: 'admin/profile/view-profile',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: ViewProfileComponent
     },
     {
         path: 'admin/profile/update-profile',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: ViewProfileComponent
     },
 
     // Admin Settings routes
     {
         path: 'admin/settings/change-password',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: ChangePasswordComponent
     },
 
     // **************** Employee routes *************************
     {
         path: 'employee/home',
-        // canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
         component: EmployeeHomeComponent
     },
 
