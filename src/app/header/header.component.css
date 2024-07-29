@@ -99,7 +99,8 @@ a {
 
 #dropdown-menu3 {
     position: absolute;
-    left: 720px;
+    /* left: 720px; */
+    left: calc(100% - 36%);
 }
 
 #dropdown-menu4 {

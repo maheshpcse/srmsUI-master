@@ -85,7 +85,7 @@ a.btn:hover {
     text-align: center;
     color: #333;
     /* margin-top: 40px; */
-    position: sticky;
+    position: fixed;
     bottom: 0;
     /* width: 80%; */
     width: -webkit-fill-available;

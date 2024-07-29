@@ -92,6 +92,11 @@ select {
     box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 }
 
+.error-msg {
+    color: coral;
+    font-size: 0.7em;
+}
+
 
 /* add/update modal css styles */
 .modal .modal-dialog .modal-content {

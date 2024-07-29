@@ -13,8 +13,8 @@ import * as moment from 'moment';
 export class AdminLoginComponent implements OnInit {
 
     spinner: any = false;
-    adminname: any = null;
-    password: any = null;
+    adminname: any = 'master';
+    password: any = '1234';
     adminData: any = {
         adminId: 1,
         fullname: 'Test Admin',
@@ -64,7 +64,7 @@ export class AdminLoginComponent implements OnInit {
             console.log('Get admin login data response isss', response);
             if (response && response.success) {
                 this.toastr.successToastr(response.message);
-                this.cookieService.set('path', '/');
+                // this.cookieService.set('path', '/');
                 for (const [key, value] of Object.entries(response.data)) {
                     let newItem: any = value;
                     localStorage.setItem(key, newItem);

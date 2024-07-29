@@ -2,7 +2,7 @@
 
 <main>
     <div class="form-title">
-        <h6>Add Edit School Details :</h6>
+        <h6>{{ action == 'Add' ? 'Add' : 'Edit' }} School Details :</h6>
     </div>
     <div class="card form-data">
         <div class="card-body">
@@ -17,17 +17,24 @@
                             <div class="form-group">
                                 <label for="schoolname" class="field-required">School Name</label>
                                 <input type="text" class="form-control" name="schoolname" id="schoolnameid"
-                                    placeholder="Enter School Name" required>
+                                    placeholder="Enter School Name" [(ngModel)]="schoolName" #schoolname="ngModel" required>
+                                <span class="error-msg mt-2" *ngIf="schoolname?.invalid && (schoolname?.dirty || schoolname?.touched)">
+                                    <span *ngIf="schoolname?.errors?.required">School Name is required.</span>
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="status" class="field-required">Status</label>
-                                <select class="form-control" name="statusname" id="statusid" required>
+                                <label for="statusname" class="field-required">Status</label>
+                                <select class="form-control" name="statusname" id="statusid" [(ngModel)]="schoolStatus" 
+                                    #statusname="ngModel" required>
                                     <option value="null" selected disabled>Select Current Status :</option>
                                     <option value="0">Closed (Not running)</option>
                                     <option value="1">Opened (Running)</option>
                                 </select>
+                                <span class="error-msg mt-2" *ngIf="statusname?.invalid && (statusname?.dirty || statusname?.touched)">
+                                    <span *ngIf="statusname?.errors?.required">Status is required.</span>
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -41,13 +48,13 @@
                                 <div class="form-group">
                                     <div class="form-check-inline">
                                         <label class="form-check-label d-flex align-items-center">
-                                            <input type="radio" class="form-check-input" name="isoname" id="isoyes">
+                                            <input type="radio" class="form-check-input" name="isonameyes" id="isoyes" value="1" [(ngModel)]="isoCertified">
                                             <span>Yes</span>
                                         </label>
                                     </div>
                                     <div class="form-check-inline ml-5">
                                         <label class="form-check-label d-flex align-items-center">
-                                            <input type="radio" class="form-check-input" name="isoname" id="isono">
+                                            <input type="radio" class="form-check-input" name="isonameno" id="isono" value="0" [(ngModel)]="isoCertified">
                                             <span>No</span>
                                         </label>
                                     </div>
@@ -65,28 +72,40 @@
                             <div class="form-group">
                                 <label for="addressname" class="field-required">School Address</label>
                                 <textarea class="form-control" name="addressname" id="addressnameid" cols="3" rows="3"
-                                    placeholder="Enter School Address" required></textarea>
+                                    placeholder="Enter School Address" [(ngModel)]="address" #addressname="ngModel" required></textarea>
+                                <span class="error-msg mt-2" *ngIf="addressname?.invalid && (addressname?.dirty || addressname?.touched)">
+                                    <span *ngIf="addressname?.errors?.required">Address is required.</span>
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="city" class="field-required">City</label>
+                                <label for="cityname" class="field-required">City</label>
                                 <input type="text" class="form-control" name="cityname" id="cityid"
-                                    placeholder="Enter City Name" required>
+                                    placeholder="Enter City Name" [(ngModel)]="cityName" #cityname="ngModel" required>
+                                <span class="error-msg mt-2" *ngIf="cityname?.invalid && (cityname?.dirty || cityname?.touched)">
+                                    <span *ngIf="cityname?.errors?.required">City is required.</span>
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="state" class="field-required">State</label>
+                                <label for="statename" class="field-required">State</label>
                                 <input type="text" class="form-control" name="statename" id="stateid"
-                                    placeholder="Enter State Name" required>
+                                    placeholder="Enter State Name" [(ngModel)]="stateName" #statename="ngModel" required>
+                                <span class="error-msg mt-2" *ngIf="statename?.invalid && (statename?.dirty || statename?.touched)">
+                                    <span *ngIf="statename?.errors?.required">State is required.</span>
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="zipcode" class="field-required">Zip Code</label>
                                 <input type="number" class="form-control" name="zipcodename" id="zipcodeid"
-                                    placeholder="Enter Zip Code" required>
+                                    placeholder="Enter Zip Code" [(ngModel)]="zipCode" #zipcodename="ngModel" required>
+                                <span class="error-msg mt-2" *ngIf="zipcodename?.invalid && (zipcodename?.dirty || zipcodename?.touched)">
+                                    <span *ngIf="zipcodename?.errors?.required">Zip Code is required.</span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -100,14 +119,20 @@
                             <div class="form-group">
                                 <label for="email" class="field-required">Email</label>
                                 <input type="email" class="form-control" name="emailname" id="emailid"
-                                    placeholder="Enter Email" required>
+                                    placeholder="Enter Email" [(ngModel)]="emailAddress" #emailname="ngModel" required>
+                                <span class="error-msg mt-2" *ngIf="emailname?.invalid && (emailname?.dirty || emailname?.touched)">
+                                    <span *ngIf="emailname?.errors?.required">Email is required.</span>
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="contact" class="field-required">Phone Number</label>
-                                <input type="number" class="form-control" name="contactname" id="contactid"
-                                    placeholder="Enter Phone Number" required>
+                                <input type="number" class="form-control" name="contactname" #contactname="ngModel" id="contactid"
+                                    placeholder="Enter Phone Number" [(ngModel)]="phonenumber" required>
+                                <span class="error-msg mt-2" *ngIf="contactname?.invalid && (contactname?.dirty || contactname?.touched)">
+                                    <span *ngIf="contactname?.errors?.required">Phone Number is required.</span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -116,10 +141,10 @@
                         <div class="col-md-4">
                             <div class="form-group input-group">
                                 <button class="btn btn-action-submit col-4" data-toggle="modal"
-                                    data-target="#submitReqModal" (click)="submitReq = 0;">
-                                    Submit
+                                    data-target="#submitReqModal" [disabled]="checkFormValidation(schoolForm)" (click)="submitReq = 0;">
+                                    {{ action == 'Add' ? 'Submit' : 'Update' }}
                                 </button>
-                                <button class="btn btn-action-reset col-4 ml-3">Reset</button>
+                                <button class="btn btn-action-reset col-4 ml-3" (click)="resetForm()">Reset</button>
                             </div>
                         </div>
                     </div>

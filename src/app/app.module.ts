@@ -56,6 +56,11 @@ import { AuthGuardService } from './api-services/auth-guard.service';
 import { CommonService } from './api-services/common.service';
 import { SharedService } from './api-services/shared.service';
 import { AuthTokenInterceptorService } from './api-services/auth-token-interceptor.service';
+import { SchoolService } from './api-services/school.service';
+import { ClassService } from './api-services/class.service';
+import { SubjectService } from './api-services/subject.service';
+import { StudentService } from './api-services/student.service';
+import { AdminProfileService } from './api-services/admin-profile.service';
 
 @NgModule({
     declarations: [
@@ -125,6 +130,11 @@ import { AuthTokenInterceptorService } from './api-services/auth-token-intercept
         AuthGuardService,
         CommonService,
         SharedService,
+        SchoolService,
+        ClassService,
+        SubjectService,
+        StudentService,
+        AdminProfileService,
         { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptorService, multi: true }
     ],
     bootstrap: [AppComponent],

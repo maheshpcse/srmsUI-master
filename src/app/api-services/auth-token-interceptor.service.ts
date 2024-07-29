@@ -12,7 +12,7 @@ export class AuthTokenInterceptorService implements HttpInterceptor {
 
 	intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        console.log('Called toekn intercept() function');
+        console.log('Called token intercept() function');
 
         const token = sessionStorage.getItem('token');
         const role = sessionStorage.getItem('role');

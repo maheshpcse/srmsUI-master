@@ -21,4 +21,13 @@ export class AdminSidemenuComponent implements OnInit {
         this.href = this.router.url;
     }
 
+    // TODO: submenu active/deactive still inprogress.
+    setSubmenuActive(menu?: any) {
+        console.log('menu isss:', menu);
+        var submenus: any = {
+            0: ['/admin/school/add-edit-school','/admin/school/bulk-upload-school','/admin/school/manage-school']
+        }
+        return submenus[menu].includes(this.href) || false;
+    }
+
 }
