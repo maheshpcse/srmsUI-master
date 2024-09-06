@@ -200,6 +200,9 @@
                     <span class="text-center text-muted" style="font-size: 1rem;">
                         <em>Error while processing the request.</em>
                     </span>
+                    <span class="text-center text-muted mt-3" style="font-size: 1rem;" *ngIf="apiErrorMsg">
+                        <em class="api-error">{{ apiErrorMsg }}</em>
+                    </span>
                 </ng-container>
             </div>
             <div class="modal-footer justify-content-center">

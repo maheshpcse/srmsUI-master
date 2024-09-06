@@ -22,4 +22,8 @@ export class SchoolService {
     addOrUpdateSchoolInfo(data: any) {
         return this.http.post<any>(APIURL.ADD_OR_UPDATE_SCHOOL_INFO, data);
     }
+
+	getSchoolInfoById(school_id: any) {
+		return this.http.get<any>(APIURL.GET_SCHOOL_INFO_BY_ID + `/${school_id}`);
+	}
 }

@@ -97,6 +97,10 @@ select {
     font-size: 0.7em;
 }
 
+.api-error {
+    color: coral;
+    font-size: 0.85em;
+}
 
 /* add/update modal css styles */
 .modal .modal-dialog .modal-content {

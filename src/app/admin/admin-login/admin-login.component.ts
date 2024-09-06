@@ -65,14 +65,22 @@ export class AdminLoginComponent implements OnInit {
             if (response && response.success) {
                 this.toastr.successToastr(response.message);
                 // this.cookieService.set('path', '/');
+                let id: any = 1;
                 for (const [key, value] of Object.entries(response.data)) {
                     let newItem: any = value;
                     localStorage.setItem(key, newItem);
                     sessionStorage.setItem(key, newItem);
+                    // console.log('id isss:', id);
+                    if (id == Object.keys(response.data).length) {
+                        setTimeout(() => {
+                            this.router.navigate(['/admin/home']);
+                        }, 1000);
+                    }
+                    id += 1;
                 }
-                setTimeout(() => {
-                    this.router.navigate(['/admin/home']);
-                }, 1000);
+                // setTimeout(() => {
+                //     this.router.navigate(['/admin/home']);
+                // }, 2000);
             } else {
                 this.toastr.errorToastr(response.message);
             }

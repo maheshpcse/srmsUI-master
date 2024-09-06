@@ -13,5 +13,6 @@ export const APIURL = {
 	// School API URL's
 	ADD_OR_UPDATE_SCHOOL_INFO: environment.apiUrl + '/add_or_update_school_info',
 	BULK_UPLOAD_SCHOOL_INFO: environment.apiUrl + '/bulk_upload_school_info',
-	GET_ALL_SCHOOLS_INFO: environment.apiUrl + '/get_all_schools_info'
+	GET_ALL_SCHOOLS_INFO: environment.apiUrl + '/get_all_schools_info',
+	GET_SCHOOL_INFO_BY_ID: environment.apiUrl + '/get_school_info_by_id'
 }

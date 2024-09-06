@@ -19,8 +19,10 @@ export class AuthGuardService {
 
 	canActivate(): boolean {
         if (this.role == 'admin' && this.authAdminService.isLoggedIn(this.role)) {
+            // console.log('entered into if', this.role, this.authAdminService.isLoggedIn(this.role));
             return true;
         } else {
+            // console.log('entered into else', this.role, this.authAdminService.isLoggedIn(this.role));
             this.toastr.warningToastr('You are not authenticated or authorized user, Please login or signup.');
             this.authAdminService.isLoggedOut();
             return false;

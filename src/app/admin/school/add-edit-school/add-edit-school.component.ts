@@ -20,6 +20,7 @@ export class AddEditSchoolComponent implements OnInit {
     pageId: any = null;
     action: any = 'Add';
     spinner: any = false;
+    apiErrorMsg: any = null;
     
     schoolName: any = 'T John Institute Of Technology';
     schoolStatus: any = 1;
@@ -46,12 +47,33 @@ export class AddEditSchoolComponent implements OnInit {
         });
         if (this.pageId) {
             this.action = 'Update';
-            this.getSchoolData();
+            this.getSchoolInfo();
         }
     }
 
-    getSchoolData() {
-
+    getSchoolInfo() {
+        this.schoolService.getSchoolInfoById(this.pageId).subscribe(async (response: any) => {
+            console.log('Get school info by id response isss', response);
+            if (response && response.success) {
+                this.schoolName = response['data']['schoolname'];
+                this.schoolStatus = Number(response['data']['status']);
+                this.isoCertified = response['data']['isocertified'].toString();
+                this.address = response['data']['address'];
+                this.cityName = response['data']['city'];
+                this.stateName = response['data']['state'];
+                this.zipCode = response['data']['zipcode'];
+                this.emailAddress = response['data']['email'];
+                this.phonenumber = response['data']['phonenumber'];
+            } else {
+                if (response && response['data'] && response['data']['sqlMessage']) {
+                    this.toastr.errorToastr(response['data']['sqlMessage']);
+                } else {
+                    this.apiErrorMsg = response['message'];
+                }
+            }
+        }, (error: any) => {
+            this.toastr.errorToastr('Network failed, Please try again.');
+        });
     }
 
     addOrUpdateSchool() {
@@ -65,6 +87,7 @@ export class AddEditSchoolComponent implements OnInit {
             this.spinner = false;
             return this.toastr.errorToastr('Please fill the required fields.');
         }
+        this.apiErrorMsg = null;
         this.submitReq = 1;
         const schoolPayload = {
             school_id: this.action == 'Add' ? null : Number(this.pageId),
@@ -89,14 +112,17 @@ export class AddEditSchoolComponent implements OnInit {
                 this.resetForm();
             } else {
                 // this.toastr.errorToastr(response.message);
+                if (response && response['data'] && response['data']['sqlMessage']) {
+                    this.apiErrorMsg = response['data']['sqlMessage'];
+                }
                 this.submitReq = 3;
             }
             this.spinner = false;
         }, (error: any) => {
-            // this.toastr.errorToastr('Network failed, Please try again.');
+            this.toastr.errorToastr('Network failed, Please try again.');
             this.spinner = false;
-            this.submitReq = 3;
-        });        
+            this.submitReq = 0;
+        });       
     }
 
     checkFormValidation(form?: any) {
@@ -116,6 +142,7 @@ export class AddEditSchoolComponent implements OnInit {
         this.zipCode = null;
         this.emailAddress = null;
         this.phonenumber = null;
+        this.apiErrorMsg = null;
     }
 
     saveData() {
